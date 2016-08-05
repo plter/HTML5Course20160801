@@ -13,7 +13,8 @@
         {name: "李四", score: 12},
         {name: "王五", score: 9},
         {name: "赵六", score: 15},
-        {name: "铁蛋儿", score: 8}
+        {name: "铁蛋儿", score: 8},
+        {name: "狗蛋儿", score: 16}
     ];
 
     function createElement(tagName, content) {
