@@ -35,10 +35,10 @@
             }
         }
 
-        syncTable();
+        refreshTable();
     }
 
-    function syncTable() {
+    function refreshTable() {
         if (currentTable) {
             container.removeChild(currentTable);
         }
@@ -73,7 +73,7 @@
     }
 
     function init() {
-        syncTable();
+        refreshTable();
     }
 
     init();
