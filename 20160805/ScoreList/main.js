@@ -6,6 +6,7 @@
 
     var container = document.getElementById("container");
     var currentTable;
+    var asc = true;
 
     var scoreList = [
         {name: "张三", score: 10},
@@ -27,13 +28,16 @@
         var tmp;
         for (var i = 0; i < scoreList.length; i++) {
             for (var j = i + 1; j < scoreList.length; j++) {
-                if (scoreList[i].score < scoreList[j].score) {
+                if ((asc && scoreList[i].score > scoreList[j].score)
+                    || (!asc && scoreList[i].score < scoreList[j].score)) {
                     tmp = scoreList[i];
                     scoreList[i] = scoreList[j];
                     scoreList[j] = tmp;
                 }
             }
         }
+
+        asc = !asc;
 
         refreshTable();
     }
