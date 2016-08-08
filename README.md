@@ -1,6 +1,10 @@
 # HTML5Course20160801
 
 #作业安排
+##20160808
+1. 用纯JavaScript写出一个2D卡片，效果参考[plter.github.io/learnjs/jQueryCard/index.html](plter.github.io/learnjs/jQueryCard/index.html) 
+2. 跟随鼠标的眼睛，效果参考[plter.github.io/learnjs/Eyes/index.html](plter.github.io/learnjs/Eyes/index.html)
+
 ##20160805 (小测试)
 1. 写出一个进度条
 2. 写出一个数字时钟

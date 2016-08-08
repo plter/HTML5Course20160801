@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="div"></div>
+
+
+<script>
+
+    $("#div").on("click", function (e) {
+        $(this).hide(300);
+    });
+
+</script>
+
+</body>
+</html>
