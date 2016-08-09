@@ -7,24 +7,8 @@
     var cardA = document.querySelector("#container .card-a");
     var cardB = document.querySelector("#container .card-b");
     var container = document.querySelector("#container");
-    var aVisible = false;
     var playing = false;
 
-    function showA() {
-        if (!aVisible) {
-            cardA.style.display = "block";
-            cardB.style.display = "none";
-            aVisible = true;
-        }
-    }
-
-    function showB() {
-        if (aVisible) {
-            cardA.style.display = "none";
-            cardB.style.display = "block";
-            aVisible = false;
-        }
-    }
 
     function turnFromTo(from, to) {
         if (!playing) {
@@ -38,11 +22,10 @@
 
                 if (widthPercent <= 0) {
                     clearInterval(id);
-                    if (aVisible) {
-                        showB();
-                    } else {
-                        showA();
-                    }
+                    from.style.display = "none";
+                    from.visible = false;
+                    to.style.display = "block";
+                    to.visible = true;
                     to.style.width = "0";
 
                     id = setInterval(function () {
@@ -70,10 +53,12 @@
     }
 
     function init() {
-        showA();
+
+        cardA.visible = true;
+        cardB.visible = false;
 
         container.onclick = function (event) {
-            if (aVisible) {
+            if (cardA.visible) {
                 turnToB();
             } else {
                 turnToA();
