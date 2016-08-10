@@ -16,7 +16,7 @@
 
     function setEyeballPosition(eye, dx, dy) {
         var angle = Math.atan(dy / dx);
-        var direction = dx > 0 ? 1 : -1;
+        var direction = dx >= 0 ? 1 : -1;
         var eyeX = eyeBallStartX + R * Math.cos(angle) * direction;
         var eyeY = eyeBallStartY + R * Math.sin(angle) * direction;
         eye.style.left = eyeX + "px";
