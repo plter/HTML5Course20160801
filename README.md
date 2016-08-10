@@ -1,9 +1,14 @@
 # HTML5Course20160801
 
 #作业安排
+2. 自定义菜单，效果参考[http://plter.github.io/learnjs/ccmjs/examples/](http://plter.github.io/learnjs/ccmjs/examples/)
+
+##20160809
+1. 跟随鼠标的眼睛，效果参考[http://plter.github.io/learnjs/Eyes/index.html](http://plter.github.io/learnjs/Eyes/index.html)
+
+
 ##20160808
 1. 用纯JavaScript写出一个2D卡片，效果参考[http://plter.github.io/learnjs/jQueryCard/index.html](http://plter.github.io/learnjs/jQueryCard/index.html) 
-2. 跟随鼠标的眼睛，效果参考[http://plter.github.io/learnjs/Eyes/index.html](http://plter.github.io/learnjs/Eyes/index.html)
 
 ##20160805 (小测试)
 1. 写出一个进度条
