@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        .face {
+            width: 200px;
+            height: 200px;
+            border: solid;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .eye {
+            width: 60px;
+            height: 60px;
+            border: solid;
+            border-radius: 50%;
+            position: absolute;
+            top: 50px;
+        }
+
+        .left {
+            left: 20px;
+        }
+
+        .right {
+            left: 120px;
+        }
+
+        .eyeball {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+            top: 20px;
+            left: 20px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div class="face">
+    <div class="eye left">
+        <div class="eyeball"></div>
+    </div>
+    <div class="eye right">
+        <div class="eyeball"></div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
