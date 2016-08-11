@@ -1,7 +1,11 @@
 # HTML5Course20160801
 
 #作业安排
-2. 自定义菜单，效果参考[http://plter.github.io/learnjs/ccmjs/examples/](http://plter.github.io/learnjs/ccmjs/examples/)
+##20160811
+1. 同步播放歌词，效果参考[http://plter.github.io/learnjs/PlaySong/PlaySoundWithLRC.html](http://plter.github.io/learnjs/PlaySong/PlaySoundWithLRC.html)
+
+##20160810
+1. 自定义菜单，效果参考[http://plter.github.io/learnjs/ccmjs/examples/](http://plter.github.io/learnjs/ccmjs/examples/)
 
 ##20160809
 1. 跟随鼠标的眼睛，效果参考[http://plter.github.io/learnjs/Eyes/index.html](http://plter.github.io/learnjs/Eyes/index.html)
