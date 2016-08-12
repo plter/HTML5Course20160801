@@ -1,6 +1,11 @@
 # HTML5Course20160801
 
 #作业安排
+##20160812（小测试）
+1. 用正则表达式解析url参数
+
+
+
 ##20160811
 1. 同步播放歌词，效果参考[http://plter.github.io/learnjs/PlaySong/PlaySoundWithLRC.html](http://plter.github.io/learnjs/PlaySong/PlaySoundWithLRC.html)
 
