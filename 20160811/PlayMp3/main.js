@@ -30,9 +30,7 @@
 
                         position = line.indexOf("]");
                         if (position != -1) {
-                            var content = line.substr(position + 1);
-
-                            lrcObject[time] = content;
+                            lrcObject[time] = line.substr(position + 1);
                         } else {
                             console.error("非法的行: " + line);
                         }
