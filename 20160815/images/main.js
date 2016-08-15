@@ -5,7 +5,6 @@
 
 (function () {
 
-
     var content = document.querySelector("#content");
     var contentX = 0;
     var imgWidth = 200;
