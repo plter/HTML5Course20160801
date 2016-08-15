@@ -10,8 +10,7 @@
     width: 600px;
     height: 150px;
     overflow: hidden;
-    /*transform: translateX(-10px);*/
-    /*position: absolute;*/
+    position: relative;
 }
 
 #red {
