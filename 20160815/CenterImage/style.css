@@ -1,0 +1,11 @@
+
+.center {
+    display: block;
+    position: relative;
+    left: -480px;
+}
+
+#bigimagecontent {
+    position: relative;
+    left: 50%;
+}
