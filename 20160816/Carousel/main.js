@@ -72,15 +72,20 @@
     /**
      * 根据一个图片的url创建一个包括img的div
      * @param imgSrc {String} 图片的url
+     * @param linkUrl {String} 轮播图链接地址
      * @returns {HTMLDivElement} 被创建的div
      */
-    function createImageContainer(imgSrc) {
+    function createImageContainer(imgSrc, linkUrl) {
         var div = document.createElement("div");
         div.className = "image-container";
 
+        var a = document.createElement("a");
+        a.href = linkUrl || "#";
+        div.appendChild(a);
+
         var img = document.createElement("img");
         img.src = imgSrc;
-        div.appendChild(img);
+        a.appendChild(img);
         return div;
     }
 
@@ -89,8 +94,8 @@
      * @type {*[]}
      */
     var carouselImagesArray = [
-        createImageContainer("images/1.jpg"),
-        createImageContainer("images/2.jpg"),
+        createImageContainer("images/1.jpg", "http://ucai.cn"),
+        createImageContainer("images/2.jpg", "http://baidu.com"),
         createImageContainer("images/3.jpg")
     ];
     var currentVisibleImage;
@@ -154,6 +159,9 @@
         carouselContent.appendChild(currentVisibleImage);
     }
 
+    /**
+     * 为左右按钮添加事件侦听器
+     */
     function addListeners() {
         document.querySelector("#carousel .btn-pre").onclick = function () {
             showPreCarouselImage();
@@ -166,6 +174,9 @@
         };
     }
 
+    /**
+     * 重新开始用于切换图片的计时器
+     */
     function restartSwitchImageTimer() {
         if (switchImageTimerId != -1) {
             clearInterval(switchImageTimerId);

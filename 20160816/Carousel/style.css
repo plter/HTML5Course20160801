@@ -18,6 +18,7 @@
     height: 100%;
     top: 50%;
     font-size: 40pt;
+    cursor: pointer;
 }
 
 #carousel .btn-pre {
@@ -38,3 +39,10 @@
     position: absolute;
 }
 
+.image-container a {
+    display: block;
+}
+
+.image-container img {
+    display: block;
+}
