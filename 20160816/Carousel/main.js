@@ -16,6 +16,18 @@
      */
     var imageIndex = 0;
 
+    /**
+     * 用于切换图片的计时器
+     * @type {number}
+     */
+    var switchImageTimerId = -1;
+
+    /**
+     * 该变量用于指示当前是否正在切换图片
+     * @type {boolean}
+     */
+    var switchImageAnimationPlaying = false;
+
 
     /**
      * 把一个对象从某位置移动到目标位置
@@ -87,43 +99,53 @@
      * 呈现下一张图片
      */
     function showNextCarouselImage() {
-        imageIndex++;
-        if (imageIndex >= carouselImagesArray.length) {
-            imageIndex = 0;
-        }
+        if (!switchImageAnimationPlaying) {
+            switchImageAnimationPlaying = true;
+            imageIndex++;
+            if (imageIndex >= carouselImagesArray.length) {
+                imageIndex = 0;
+            }
 
-        if (currentVisibleImage) {
-            moveTo(currentVisibleImage, 0, -800, 0, 0, 500, function (target) {
-                carouselContent.removeChild(target);
+            if (currentVisibleImage) {
+                moveTo(currentVisibleImage, 0, -800, 0, 0, 500, function (target) {
+                    carouselContent.removeChild(target);
+                });
+            }
+
+            currentVisibleImage = carouselImagesArray[imageIndex];
+            carouselContent.appendChild(currentVisibleImage);
+            currentVisibleImage.style.left = "800px";
+            moveTo(currentVisibleImage, 800, 0, 0, 0, 500, function () {
+                switchImageAnimationPlaying = false;
             });
         }
-
-        currentVisibleImage = carouselImagesArray[imageIndex];
-        carouselContent.appendChild(currentVisibleImage);
-        currentVisibleImage.style.left = "800px";
-        moveTo(currentVisibleImage, 800, 0, 0, 0, 500);
     }
 
     /**
      * 呈现上一张图片
      */
     function showPreCarouselImage() {
-        imageIndex--;
+        if (!switchImageAnimationPlaying) {
+            switchImageAnimationPlaying = true;
+            imageIndex--;
 
-        if (imageIndex < 0) {
-            imageIndex = carouselImagesArray.length - 1;
-        }
+            if (imageIndex < 0) {
+                imageIndex = carouselImagesArray.length - 1;
+            }
 
-        if (currentVisibleImage) {
-            moveTo(currentVisibleImage, 0, 800, 0, 0, 500, function (target) {
-                carouselContent.removeChild(target);
+            if (currentVisibleImage) {
+                moveTo(currentVisibleImage, 0, 800, 0, 0, 500, function (target) {
+                    carouselContent.removeChild(target);
+                });
+            }
+
+            currentVisibleImage = carouselImagesArray[imageIndex];
+            carouselContent.appendChild(currentVisibleImage);
+            currentVisibleImage.style.left = "-800px";
+            moveTo(currentVisibleImage, -800, 0, 0, 0, 500, function () {
+                switchImageAnimationPlaying = false;
             });
         }
-
-        currentVisibleImage = carouselImagesArray[imageIndex];
-        carouselContent.appendChild(currentVisibleImage);
-        currentVisibleImage.style.left = "-800px";
-        moveTo(currentVisibleImage, -800, 0, 0, 0, 500);
     }
 
     function addInitCarouselImage() {
@@ -132,14 +154,35 @@
         carouselContent.appendChild(currentVisibleImage);
     }
 
+    function addListeners() {
+        document.querySelector("#carousel .btn-pre").onclick = function () {
+            showPreCarouselImage();
+            restartSwitchImageTimer();
+        };
+
+        document.querySelector("#carousel .btn-next").onclick = function () {
+            showNextCarouselImage();
+            restartSwitchImageTimer();
+        };
+    }
+
+    function restartSwitchImageTimer() {
+        if (switchImageTimerId != -1) {
+            clearInterval(switchImageTimerId);
+        }
+
+        switchImageTimerId = setInterval(function () {
+            showNextCarouselImage();
+            // showPreCarouselImage();
+        }, 5000);
+    }
+
     function init() {
 
-        addInitCarouselImage();
+        addListeners();
 
-        setInterval(function () {
-            // showNextCarouselImage();
-            showPreCarouselImage();
-        }, 3000);
+        addInitCarouselImage();
+        restartSwitchImageTimer();
     }
 
     init();

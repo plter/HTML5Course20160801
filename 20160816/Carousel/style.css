@@ -13,6 +13,21 @@
     overflow: hidden;
 }
 
+#carousel .carousel-button {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    font-size: 40pt;
+}
+
+#carousel .btn-pre {
+    left: 10px;
+}
+
+#carousel .btn-next {
+    right: 10px;
+}
+
 #carousel .carousel-content {
     width: 3000px;
     height: 2000px;
