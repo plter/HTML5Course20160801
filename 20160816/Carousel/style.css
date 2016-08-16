@@ -1,0 +1,25 @@
+
+#carousel-container {
+    position: relative;
+    left: 50%;
+    width: 0;
+}
+
+#carousel {
+    width: 800px;
+    height: 600px;
+    position: relative;
+    left: -400px;
+    overflow: hidden;
+}
+
+#carousel .carousel-content {
+    width: 3000px;
+    height: 600px;
+    position: relative;
+}
+
+#carousel .image-container {
+    position: absolute;
+}
+
