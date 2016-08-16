@@ -7,7 +7,7 @@
     var carouselContent = document.querySelector("#carousel .carousel-content");
 
     function moveTo(target, fromX, toX, fromY, toY, duration, completeHandler) {
-        var fps = 50;
+        var fps = 50;//frames per second
         var frameDuration = Math.round(1000 / fps);
         var frames = Math.round(duration / 1000 * fps);
         var frameIndex = 0;
@@ -46,7 +46,35 @@
         return div;
     }
 
-    carouselContent.appendChild(createImageContainer("images/1.jpg"));
+    var carouselImagesArray = [
+        createImageContainer("images/1.jpg"),
+        createImageContainer("images/2.jpg"),
+        createImageContainer("images/3.jpg")
+    ];
+    var currentVisibleImage;
 
-    moveTo(carouselContent, 200, 0, 0, 0, 3000);
+    function showCarouselImage(index) {
+        if (currentVisibleImage) {
+            carouselContent.removeChild(currentVisibleImage);
+        }
+
+        currentVisibleImage = carouselImagesArray[index];
+        carouselContent.appendChild(currentVisibleImage);
+    }
+
+    function init() {
+
+        var index = 0;
+        showCarouselImage(index);
+        setInterval(function () {
+            index++;
+
+            if (index >= carouselImagesArray.length) {
+                index = 0;
+            }
+            showCarouselImage(index);
+        }, 3000);
+    }
+
+    init();
 })();
