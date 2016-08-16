@@ -11,6 +11,13 @@
     var carouselContent = document.querySelector("#carousel .carousel-content");
 
     /**
+     * 图片在数组中的位置
+     * @type {number}
+     */
+    var imageIndex = 0;
+
+
+    /**
      * 把一个对象从某位置移动到目标位置
      * @param target 被移动的对象
      * @param fromX 开始left位置
@@ -76,32 +83,62 @@
     ];
     var currentVisibleImage;
 
-    function showCarouselImage(index) {
+    /**
+     * 呈现下一张图片
+     */
+    function showNextCarouselImage() {
+        imageIndex++;
+        if (imageIndex >= carouselImagesArray.length) {
+            imageIndex = 0;
+        }
+
         if (currentVisibleImage) {
             moveTo(currentVisibleImage, 0, -800, 0, 0, 500, function (target) {
                 carouselContent.removeChild(target);
             });
         }
 
-        currentVisibleImage = carouselImagesArray[index];
+        currentVisibleImage = carouselImagesArray[imageIndex];
         carouselContent.appendChild(currentVisibleImage);
         currentVisibleImage.style.left = "800px";
         moveTo(currentVisibleImage, 800, 0, 0, 0, 500);
     }
 
+    /**
+     * 呈现上一张图片
+     */
+    function showPreCarouselImage() {
+        imageIndex--;
+
+        if (imageIndex < 0) {
+            imageIndex = carouselImagesArray.length - 1;
+        }
+
+        if (currentVisibleImage) {
+            moveTo(currentVisibleImage, 0, 800, 0, 0, 500, function (target) {
+                carouselContent.removeChild(target);
+            });
+        }
+
+        currentVisibleImage = carouselImagesArray[imageIndex];
+        carouselContent.appendChild(currentVisibleImage);
+        currentVisibleImage.style.left = "-800px";
+        moveTo(currentVisibleImage, -800, 0, 0, 0, 500);
+    }
+
+    function addInitCarouselImage() {
+        imageIndex = 0;
+        currentVisibleImage = carouselImagesArray[imageIndex];
+        carouselContent.appendChild(currentVisibleImage);
+    }
+
     function init() {
 
-        currentVisibleImage = carouselImagesArray[0];
-        carouselContent.appendChild(currentVisibleImage);
+        addInitCarouselImage();
 
-        var index = 0;
         setInterval(function () {
-            index++;
-
-            if (index >= carouselImagesArray.length) {
-                index = 0;
-            }
-            showCarouselImage(index);
+            // showNextCarouselImage();
+            showPreCarouselImage();
         }, 3000);
     }
 
