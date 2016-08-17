@@ -19,7 +19,7 @@
      * 切换图片的动画效果的播放时长
      * @type {number}
      */
-    var SWITCH_IMAGE_ANIMATION_DURATION = 500;
+    var SWITCH_IMAGE_ANIMATION_DURATION = 300;
 
     /**
      * 容纳轮播图片Div的容器
@@ -44,6 +44,62 @@
      * @type {boolean}
      */
     var switchImageAnimationPlaying = false;
+
+    /**
+     * 透明度动画
+     * @param target 被执行动画的对象
+     * @param fromAlpha 开始时的透明度
+     * @param toAlpha 结束时的透明度
+     * @param duration 动画时长
+     * @param completeHandler 动画结束后的回调函数
+     */
+    function alphaAnim(target, fromAlpha, toAlpha, duration, completeHandler) {
+        var fps = 50;
+        var frameDuration = Math.round(1000 / fps);//每一帧的时长
+        var frames = Math.round(duration / 1000 * fps);//完成该动画所需要的帧数
+        var frameIndex = 0;
+        var speed = (toAlpha - fromAlpha) / frames;
+        var alpha = fromAlpha;
+
+        var id = setInterval(function () {
+            alpha += speed;
+
+            frameIndex++;
+            if (frameIndex >= frames) {
+                clearInterval(id);
+                alpha = toAlpha;
+
+                if (completeHandler) {
+                    completeHandler(target);
+                }
+            }
+
+            target.style.opacity = alpha;
+        }, frameDuration);
+    }
+
+
+    /**
+     * 淡入
+     * @param target
+     * @param completeHandler
+     */
+    function fadeIn(target, completeHandler) {
+        target.style.left = "0";
+        target.style.top = "0";
+        target.style.opacity = 0;
+        alphaAnim(target, 0, 1, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
+    }
+
+
+    /**
+     * 淡出
+     * @param target
+     * @param completeHandler
+     */
+    function fadeOut(target, completeHandler) {
+        alphaAnim(target, 1, 0, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
+    }
 
 
     /**
@@ -88,21 +144,25 @@
 
     function moveInFromLeft(target, completeHandler) {
         target.style.left = -CAROUSEL_WIDTH + "px";
+        target.style.opacity = 1;
         moveTo(target, -CAROUSEL_WIDTH, 0, 0, 0, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
     }
 
     function moveInFromTop(target, completeHandler) {
         target.style.top = -CAROUSEL_HEIGHT + "px";
+        target.style.opacity = 1;
         moveTo(target, 0, 0, -CAROUSEL_HEIGHT, 0, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
     }
 
     function moveInFromRight(target, completeHandler) {
         target.style.left = CAROUSEL_WIDTH + "px";
+        target.style.opacity = 1;
         moveTo(target, CAROUSEL_WIDTH, 0, 0, 0, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
     }
 
     function moveInFromBottom(target, completeHandler) {
         target.style.top = CAROUSEL_HEIGHT + "px";
+        target.style.opacity = 1;
         moveTo(target, 0, 0, CAROUSEL_HEIGHT, 0, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
     }
 
@@ -160,6 +220,7 @@
         {inAnim: moveInFromRight, outAnim: moveOutToLeft},
         {inAnim: moveInFromTop, outAnim: moveOutToBottom},
         {inAnim: moveInFromBottom, outAnim: moveOutToTop},
+        {inAnim: fadeIn, outAnim: fadeOut},
         {inAnim: moveInFromLeft, outAnim: moveOutToRight}
     ];
     var currentVisibleImage;
@@ -274,7 +335,7 @@
 
         switchImageTimerId = setInterval(function () {
             switchImageWithEffect();
-        }, 5000);
+        }, 3000);
     }
 
     function init() {
