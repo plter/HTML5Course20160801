@@ -2,6 +2,10 @@
 
 #作业安排
 
+##20160817
+1. 在页面上呈现100个2D翻转的卡片，效果参考 [http://plter.github.io/learnjs/jQueryCard/index.html](http://plter.github.io/learnjs/jQueryCard/index.html) 
+
+
 ##20160816
 1. 轮播图切换时效果随机，包括效果有(从左往右、从右往左、从上往下、从下往上、淡入淡出)
 

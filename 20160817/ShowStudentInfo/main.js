@@ -49,6 +49,7 @@
         return self;
     }
 
+
     function BoyStudent(name, age) {
         var self = Student(name, age, "男");
 
@@ -56,7 +57,7 @@
             alert(self.name + "说:你好");
         };
 
-        self.htmlNode.onclick = function () {
+        self.getNode().onclick = function () {
             self.sayHello();
         };
 
