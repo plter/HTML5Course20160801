@@ -1,0 +1,48 @@
+
+#carousel-container {
+    position: relative;
+    left: 50%;
+    width: 0;
+}
+
+#carousel {
+    width: 800px;
+    height: 600px;
+    position: relative;
+    left: -400px;
+    overflow: hidden;
+}
+
+#carousel .carousel-button {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    font-size: 40pt;
+    cursor: pointer;
+}
+
+#carousel .btn-pre {
+    left: 10px;
+}
+
+#carousel .btn-next {
+    right: 10px;
+}
+
+#carousel .carousel-content {
+    width: 3000px;
+    height: 2000px;
+    position: relative;
+}
+
+#carousel .image-container {
+    position: absolute;
+}
+
+.image-container a {
+    display: block;
+}
+
+.image-container img {
+    display: block;
+}

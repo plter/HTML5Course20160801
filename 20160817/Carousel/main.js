@@ -118,7 +118,7 @@
         moveTo(target, 0, CAROUSEL_WIDTH, 0, 0, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
     }
 
-    function moveOutTopBottom(target, completeHandler) {
+    function moveOutToBottom(target, completeHandler) {
         moveTo(target, 0, 0, 0, CAROUSEL_HEIGHT, SWITCH_IMAGE_ANIMATION_DURATION, completeHandler);
     }
 
@@ -157,7 +157,10 @@
      * @type {*[]}
      */
     var switchImageAnimations = [
-        {inAnim: moveInFromRight, outAnim: moveOutToLeft}
+        {inAnim: moveInFromRight, outAnim: moveOutToLeft},
+        {inAnim: moveInFromTop, outAnim: moveOutToBottom},
+        {inAnim: moveInFromBottom, outAnim: moveOutToTop},
+        {inAnim: moveInFromLeft, outAnim: moveOutToRight}
     ];
     var currentVisibleImage;
 
@@ -172,16 +175,10 @@
                 imageIndex = 0;
             }
 
-            if (currentVisibleImage) {
-                moveTo(currentVisibleImage, 0, -800, 0, 0, 500, function (target) {
-                    carouselContent.removeChild(target);
-                });
-            }
-
-            currentVisibleImage = carouselImagesArray[imageIndex];
-            carouselContent.appendChild(currentVisibleImage);
-            currentVisibleImage.style.left = "800px";
-            moveTo(currentVisibleImage, 800, 0, 0, 0, 500, function () {
+            switchImage(carouselImagesArray[imageIndex], {
+                inAnim: moveInFromRight,
+                outAnim: moveOutToLeft
+            }, function () {
                 switchImageAnimationPlaying = false;
             });
         }
@@ -199,18 +196,31 @@
                 imageIndex = carouselImagesArray.length - 1;
             }
 
-            if (currentVisibleImage) {
-                moveTo(currentVisibleImage, 0, 800, 0, 0, 500, function (target) {
-                    carouselContent.removeChild(target);
-                });
-            }
-
-            currentVisibleImage = carouselImagesArray[imageIndex];
-            carouselContent.appendChild(currentVisibleImage);
-            currentVisibleImage.style.left = "-800px";
-            moveTo(currentVisibleImage, -800, 0, 0, 0, 500, function () {
+            switchImage(carouselImagesArray[imageIndex], {
+                inAnim: moveInFromLeft,
+                outAnim: moveOutToRight
+            }, function () {
                 switchImageAnimationPlaying = false;
             });
+        }
+    }
+
+    /**
+     * 有动画效果的切换图片
+     */
+    function switchImageWithEffect() {
+        if (!switchImageAnimationPlaying) {
+            switchImageAnimationPlaying = true;
+            imageIndex++;
+            if (imageIndex >= carouselImagesArray.length) {
+                imageIndex = 0;
+            }
+
+            switchImage(carouselImagesArray[imageIndex],
+                switchImageAnimations[Math.floor(Math.random() * switchImageAnimations.length)],
+                function () {
+                    switchImageAnimationPlaying = false;
+                });
         }
     }
 
@@ -239,13 +249,18 @@
      * 切换图片
      * @param newImage 将要被添加进来的新图片
      * @param animPair 切换图片的动画效果对
+     * @param completeHandler 切换动画完成之后的回调函数
      */
-    function switchImage(newImage, animPair) {
+    function switchImage(newImage, animPair, completeHandler) {
         animPair.outAnim(currentVisibleImage, function (target) {
             carouselContent.removeChild(target);
         });
         currentVisibleImage = newImage;
-        animPair.inAnim(currentVisibleImage);
+        animPair.inAnim(currentVisibleImage, function () {
+            if (completeHandler) {
+                completeHandler();
+            }
+        });
         carouselContent.appendChild(currentVisibleImage);
     }
 
@@ -258,8 +273,7 @@
         }
 
         switchImageTimerId = setInterval(function () {
-            showNextCarouselImage();
-            // showPreCarouselImage();
+            switchImageWithEffect();
         }, 5000);
     }
 
