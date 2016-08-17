@@ -4,7 +4,7 @@
 
 (function () {
 
-    function CreateStudent(name, age, gender) {
+    function Student(name, age, gender) {
 
         var self = {name: name, age: age, gender: gender};
 
@@ -12,13 +12,24 @@
             return self.htmlNode;
         };
 
+
+        /**
+         * 重写Object类的toString函数,用于获取该学生详细信息
+         * @returns {string}
+         */
+        self.toString = function () {
+            return "名字:" + self.name + "\n年龄:" + self.age + "\n性别:" + self.gender;
+        };
+
         function createHtmlNode() {
             self.htmlNode = document.createElement("div");
+            self.htmlNode.style.backgroundColor = "red";
+            self.htmlNode.style.marginTop = "5px";
             var a = document.createElement("a");
             a.innerHTML = self.name;
             a.href = "#";
             a.onclick = function () {
-                alert("名字:" + self.name + "\n年龄:" + self.age + "\n性别:" + self.gender);
+                alert(self);
             };
             self.htmlNode.appendChild(a);
 
@@ -35,20 +46,40 @@
         }
 
         init();
+        return self;
+    }
+
+    function BoyStudent(name, age) {
+        var self = Student(name, age, "男");
+
+        self.sayHello = function () {
+            alert(self.name + "说:你好");
+        };
+
+        self.htmlNode.onclick = function () {
+            self.sayHello();
+        };
 
         return self;
     }
 
+    function GirlStudent(name, age) {
+        var self = Student(name, age, "女");
+        return self;
+    }
+
     var students = [
-        CreateStudent("张三", 10, "男"),
-        CreateStudent("李四", 12, "男"),
-        CreateStudent("丽丽", 9, "女")
+        BoyStudent("张三", 10, "男"),
+        BoyStudent("李四", 12, "男"),
+        GirlStudent("丽丽", 9, "女")
     ];
 
     console.log(students);
 
     for (var i = 0; i < students.length; i++) {
         var student = students[i];
+
+        console.log(student + "");
         document.body.appendChild(student.getNode());
     }
 })();
