@@ -285,6 +285,10 @@
         }
     }
 
+
+    /**
+     * 添加第一个图片,不加任何效果
+     */
     function addInitCarouselImage() {
         imageIndex = 0;
         currentVisibleImage = carouselImagesArray[imageIndex];
