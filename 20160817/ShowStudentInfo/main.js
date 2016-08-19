@@ -75,8 +75,6 @@
         GirlStudent("丽丽", 9, "女")
     ];
 
-    console.log(students);
-
     for (var i = 0; i < students.length; i++) {
         var student = students[i];
 
