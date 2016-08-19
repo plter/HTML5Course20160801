@@ -5,7 +5,8 @@
 (function () {
 
 
-    var s = new ucai.Student("张三");
+    // var s = new ucai.Student("张三");
+    var s = new ucai.BoyStudent("张三", 10);
     s.sayHello();
 
     // console.log(s instanceof ucai.Student);
