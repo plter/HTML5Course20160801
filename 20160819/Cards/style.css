@@ -3,14 +3,16 @@
     margin-top: 10px;
 }
 
-.card .div-a {
-    background-color: red;
+.card .card-content {
     width: 100%;
     height: 100%;
+    margin: 0 auto;
+}
+
+.card .div-a {
+    background-color: red;
 }
 
 .card .div-b {
     background-color: blue;
-    width: 100%;
-    height: 100%;
 }
