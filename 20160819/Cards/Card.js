@@ -2,6 +2,8 @@
  * Created by plter on 8/19/16.
  */
 
+window.ucai = window.ucai || {};
+
 
 (function () {
 
@@ -132,5 +134,5 @@
         return self;
     }
 
-    window.Card = Card;
+    ucai.Card = Card;
 })();
