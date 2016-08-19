@@ -18,11 +18,18 @@ window.ucai = window.ucai || {};//定义命名空间
         //     }
         // };
 
-        var self = copyProperties(ucai.Student(name, age, "男"), {
+        var __super = ucai.Student(name, age, "男");
+
+        var superSayHello = __super.sayHello;
+
+        var self = copyProperties(__super, {
             sayHi: function () {
                 console.log(self.name + " sayHi");
             },
             sayHello: function () {
+
+                superSayHello();
+
                 console.log("哇,竟然可以重写");
             }
         });
