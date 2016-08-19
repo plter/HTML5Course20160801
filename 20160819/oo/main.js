@@ -5,11 +5,11 @@
 (function () {
 
 
-    // var s = new ucai.Student("张三");
-    var s = new ucai.BoyStudent("张三", 10);
-    s.sayHello();
+    var s = new ucai.Student("张三", 11, "男");
+    var s1 = new ucai.BoyStudent("李四", 10);
+    // s.sayHello();
 
-    // console.log(s instanceof ucai.Student);
+    // console.log(s1 instanceof ucai.Student);
 
 
     // var a = "Hello";

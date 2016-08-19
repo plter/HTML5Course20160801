@@ -2,6 +2,10 @@
 
 #作业安排
 
+##20160819
+1. 卡片记忆小游戏，效果参考 [http://plter.github.io/h5demos/CardsMemory/index.html](http://plter.github.io/h5demos/CardsMemory/index.html)
+
+
 ##20160817
 1. 在页面上呈现100个2D翻转的卡片，效果参考 [http://plter.github.io/learnjs/jQueryCard/index.html](http://plter.github.io/learnjs/jQueryCard/index.html) 
 
