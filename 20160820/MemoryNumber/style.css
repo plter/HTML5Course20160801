@@ -1,0 +1,21 @@
+
+.card2d {
+    position: absolute;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.card-a {
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: 30pt;
+}
+
+.card-b {
+    background-color: blue;
+}
