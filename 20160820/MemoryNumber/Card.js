@@ -26,7 +26,6 @@ window.ucai = window.ucai || {};
 
         this.showA();
 
-
         var self = this;
         this._htmlNode.addEventListener("click", function (e) {
             if (self.onclick) {
@@ -84,6 +83,20 @@ window.ucai = window.ucai || {};
                 this._htmlNode.style.left = xOrPosition + "px";
                 this._htmlNode.style.top = y + "px";
                 break;
+        }
+    };
+
+    p.turnToB = function () {
+        if (!this._animating && this.isAVisible()) {
+            this._animating = true;
+            var self = this;
+            ucai.animate(this._cardA, "width", 100, 0, "%", 200, function (target) {
+                self.showB();
+
+                ucai.animate(self._cardB, "width", 0, 100, "%", 200, function (target) {
+                    self._animating = false;
+                });
+            });
         }
     };
 

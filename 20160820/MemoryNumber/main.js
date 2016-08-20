@@ -31,7 +31,7 @@
 
                 if (currentNumber == 1) {
                     for (var i = 0; i < cards.length; i++) {
-                        cards[i].showB();
+                        cards[i].turnToB();
                     }
                 }
 
