@@ -31,16 +31,27 @@
     //     console.log("click 1");
     // });
     a.addEventListener("click", function (e) {
-        console.log("a clicked");
+        console.log("a clicked,事件阶段："+e.eventPhase);
     });
 
     b.addEventListener("click",function (e) {
-        console.log("b clicked");
+        console.log("b clicked,事件阶段："+e.eventPhase);
     });
-
+    //
     c.addEventListener("click",function (e) {
         console.log("c clicked");
-        e.stopPropagation();
+        // e.stopPropagation();
+        e.stopImmediatePropagation();
     });
+
+    a.addEventListener("click",function (e) {
+        console.log("a clicked,事件阶段："+e.eventPhase);
+    },true);
+    b.addEventListener("click",function (e) {
+        console.log("b clicked,事件阶段："+e.eventPhase);
+    },true);
+    c.addEventListener("click",function (e) {
+        console.log("c clicked,事件阶段："+e.eventPhase);
+    },true);
 
 })();
