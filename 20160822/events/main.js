@@ -27,11 +27,20 @@
 
     // a.addEventListener("click", clickHandler);
 
+    // a.addEventListener("click", function (e) {
+    //     console.log("click 1");
+    // });
     a.addEventListener("click", function (e) {
-        console.log("click 1");
+        console.log("a clicked");
     });
-    a.addEventListener("click", function (e) {
-        console.log("click 2");
+
+    b.addEventListener("click",function (e) {
+        console.log("b clicked");
+    });
+
+    c.addEventListener("click",function (e) {
+        console.log("c clicked");
+        e.stopPropagation();
     });
 
 })();
