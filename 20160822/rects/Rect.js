@@ -15,6 +15,9 @@
 
         var self = this;
         this._htmlNode.onclick = function () {
+
+            console.log(this);
+
             if (self._isRed) {
                 self.getHtmlNode().style.backgroundColor = "green";
                 self._isRed = false;
