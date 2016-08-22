@@ -18,6 +18,5 @@ window.ucai = window.ucai || {};
 
     BoyStudent.prototype = new ucai.Student();
 
-
     ucai.BoyStudent = BoyStudent;
 })();
