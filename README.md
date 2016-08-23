@@ -1,6 +1,9 @@
 # HTML5Course20160801
 
 #作业安排
+##20160823
+1. 移动的小球
+
 
 ##20160822
 1. 用面向对象的方式实现自定义菜单，效果参考[http://plter.github.io/learnjs/ccmjs/examples/](http://plter.github.io/learnjs/ccmjs/examples/)
