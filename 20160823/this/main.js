@@ -25,5 +25,5 @@
     // },1000);
 
     var s = new Student("张三",10,"男");
-    s.sayHello();
+    s.sayHelloDelay();
 })();
