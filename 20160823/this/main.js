@@ -24,6 +24,11 @@
     //     console.log(this);
     // },1000);
 
-    var s = new Student("张三",10,"男");
-    s.sayHelloDelay();
+    // var s = new Student("张三",10,"男");
+    // s.sayHelloDelay();
+
+    var s = new GirlStudent("丽丽",12);
+    // console.log(s.getGender());
+    s.sayHello();
+    s.sayHi();
 })();

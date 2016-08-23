@@ -10,6 +10,18 @@
         this._gender = gender;
     }
     
+    Student.prototype.getName = function () {
+        return this._name;
+    };
+    
+    Student.prototype.getAge = function () {
+        return this._age;
+    };
+    
+    Student.prototype.getGender = function () {
+        return this._gender;
+    };
+    
     Student.prototype.sayHello = function () {
         console.log(this._name+"说：你好");
     };
