@@ -15,7 +15,11 @@
         menu.style.top = e.clientY+"px";
     });
 
-    document.onclick = function () {
+    // document.onclick = function () {
+    //     menu.style.display = "none";
+    // }
+
+    document.addEventListener("click",function () {
         menu.style.display = "none";
-    }
+    });
 })();
