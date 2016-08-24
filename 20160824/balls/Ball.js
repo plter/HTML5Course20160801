@@ -23,40 +23,66 @@
     }
 
     Ball.prototype.move = function () {
-        this._x+=this._speedX;
-        this._y+=this._speedY;
+        this.x+=this._speedX;
+        this.y+=this._speedY;
 
-        if(this._x<-this._r*2||
-        this._y<-this._r*2||
-        this._x>window.innerWidth||
-        this._y>window.innerHeight){
+        if(this.x<-this._r*2||
+        this.y<-this._r*2||
+        this.x>window.innerWidth||
+        this.y>window.innerHeight){
 
             Ball.removeBall(this);
         }
 
-        this.refreshPosition();
+        // this.refreshPosition();
     };
     
     Ball.prototype.getHtmlNode = function () {
         return this._htmlNode;
     };
+    
+    Object.defineProperty(Ball.prototype,"htmlNode",{
+        get:function () {
+            return this._htmlNode;
+        }
+    });
 
-    Ball.prototype.refreshPosition = function () {
-        this._htmlNode.style.left = this._x+"px";
-        this._htmlNode.style.top = this._y+"px";
-    };
+    Object.defineProperty(Ball.prototype,"x",{
+        get:function () {
+            return this._x;
+        },
+        set:function (value) {
+            this._x = value;
+            this.htmlNode.style.left = this._x+"px";
+        }
+    });
+
+    Object.defineProperty(Ball.prototype,"y",{
+        get:function () {
+            return this._y;
+        },
+        set:function (value) {
+            this._y = value;
+            this.htmlNode.style.top = this._y+"px";
+        }
+    });
+
+    // Ball.prototype.refreshPosition = function () {
+    //     this._htmlNode.style.left = this._x+"px";
+    //     this._htmlNode.style.top = this._y+"px";
+    // };
 
     Ball.__balls = [];
 
     Ball.createBall = function () {
         var b = new Ball();
-        document.body.appendChild(b.getHtmlNode());
+        document.body.appendChild(b.htmlNode);
         Ball.__balls.push(b);
         return b;
     };
     
     Ball.removeBall = function (ball) {
-        ball.getHtmlNode().parentNode.removeChild(ball.getHtmlNode());
+        ball.htmlNode.parentNode.removeChild(ball.htmlNode);
         
         var index = Ball.__balls.indexOf(ball);
         if(index!=-1){
