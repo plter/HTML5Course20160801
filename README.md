@@ -1,6 +1,10 @@
 # HTML5Course20160801
 
 #作业安排
+##20160824
+1. 打飞机游戏，效果参考：[http://plter.github.io/h5demos/AirRaid/](http://plter.github.io/h5demos/AirRaid/)
+
+
 ##20160823
 1. 移动的小球
 
