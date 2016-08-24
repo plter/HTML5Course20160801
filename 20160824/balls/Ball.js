@@ -37,9 +37,9 @@
         // this.refreshPosition();
     };
     
-    Ball.prototype.getHtmlNode = function () {
-        return this._htmlNode;
-    };
+    // Ball.prototype.getHtmlNode = function () {
+    //     return this._htmlNode;
+    // };
     
     Object.defineProperty(Ball.prototype,"htmlNode",{
         get:function () {
