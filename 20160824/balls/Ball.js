@@ -10,7 +10,7 @@
         this._x = Math.random()*400;
         this._y = Math.random()*300;
         this._r = 15;
-        this.refreshPosition();
+        // this.refreshPosition();
 
         this._speedX = Math.random()*10-5;
         this._speedY = Math.random()*10-5;
@@ -83,11 +83,7 @@
     
     Ball.removeBall = function (ball) {
         ball.htmlNode.parentNode.removeChild(ball.htmlNode);
-        
-        var index = Ball.__balls.indexOf(ball);
-        if(index!=-1){
-            Ball.__balls.splice(index,1);
-        }
+        Ball.__balls.removeItem(ball);
     };
     
     Ball.moveBalls = function () {
