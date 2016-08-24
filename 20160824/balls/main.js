@@ -4,17 +4,11 @@
 
 (function () {
 
-    var balls = [];
-
     for(var i=0;i<10;i++) {
-        var b = new Ball();
-        document.body.appendChild(b.getHtmlNode());
-        balls.push(b);
+        Ball.createBall();
     }
 
     setInterval(function () {
-        for(var i=0;i<balls.length;i++){
-            balls[i].move();
-        }
+        Ball.moveBalls();
     },20);
 })();
