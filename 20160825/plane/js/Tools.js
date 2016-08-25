@@ -33,7 +33,15 @@
                 this.pointInRect(rect1X, rect1Y + rect1Height,
                     rect2X, rect2Y, rect2Width, rect2Height) ||
                 this.pointInRect(rect1X + rect1Width, rect1Y + rect1Height,
-                    rect2X, rect2Y, rect2Width, rect2Height);
+                    rect2X, rect2Y, rect2Width, rect2Height) ||
+                this.pointInRect(rect2X, rect2Y,
+                    rect1X, rect1Y, rect1X + rect1Width, rect1Y + rect1Height) ||
+                this.pointInRect(rect2X + rect2Width, rect2Y,
+                    rect1X, rect1Y, rect1X + rect1Width, rect1Y + rect1Height) ||
+                this.pointInRect(rect2X, rect2Y + rect2Height,
+                    rect1X, rect1Y, rect1X + rect1Width, rect1Y + rect1Height) ||
+                this.pointInRect(rect2X + rect2Width, rect2Y + rect2Height,
+                    rect1X, rect1Y, rect1X + rect1Width, rect1Y + rect1Height);
         }
     }
 
