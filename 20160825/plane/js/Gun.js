@@ -8,11 +8,7 @@
         Photo.call(this, "res/gun.png");
 
         this.x = 250;
-
-        this.css({
-            position: "absolute",
-            bottom: "5px"
-        });
+        this.y = 350;
     }
 
     Gun.prototype = new Photo();

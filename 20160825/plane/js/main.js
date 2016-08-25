@@ -12,6 +12,13 @@
         game.appendChild(gun.htmlNode);
     }
 
+    function addBullet() {
+        var b = new Bullet();
+        b.x = gun.x + 21;
+        b.y = gun.y;
+        game.appendChild(b.htmlNode);
+    }
+
     function addListeners() {
         document.onkeydown = function (e) {
             switch (e.key) {
@@ -21,12 +28,20 @@
                 case "ArrowRight":
                     gun.moveRight();
                     break;
+                case " ":
+                    addBullet();
+                    break;
             }
         }
+    }
+
+    function startTick() {
+        Ticker.start();
     }
 
     (function () {
         createGun();
         addListeners();
+        startTick();
     })();
 })();

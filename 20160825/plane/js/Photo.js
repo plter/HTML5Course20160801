@@ -33,6 +33,7 @@
                 if (!this._htmlNode) {
                     this._htmlNode = document.createElement("img");
                     this._htmlNode.src = this._imageUrl;
+                    this._htmlNode.style.position = "absolute";
                 }
                 return this._htmlNode;
             }
@@ -56,6 +57,10 @@
             }
         }
     });
+
+    Photo.prototype.removeFromParentNode = function () {
+        this.htmlNode.parentNode.removeChild(this.htmlNode);
+    };
 
 
     window.Photo = Photo;
