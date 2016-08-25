@@ -7,23 +7,34 @@
     function Bullet() {
         Photo.call(this, "res/bullet.png");
 
-        this._speedY = -8;
-        this.addTickListener();
+        this.width = 8;
+        this.height = 16;
+        this._speedY = -3;
+        this.startTick();
     }
 
     Bullet.prototype = new Photo();
 
-    Bullet.prototype.addTickListener = function () {
-        var tickHandler = function () {
-            this.y += this._speedY;
+    Bullet.prototype.onTick = function () {
+        this.y += this._speedY;
 
-            if (this.y < -15) {
-                Ticker.removeListener(tickHandler);
+        var p;
+        for (var i = 0; i < Plane.getPlanes().length; i++) {
+            p = Plane.getPlanes()[i];
+            if (p.hitTest(this)) {
+
+                this.stopTick();
                 this.removeFromParentNode();
-            }
-        }.bind(this);
 
-        Ticker.addListener(tickHandler);
+                Plane.removePlane(p);
+                break;
+            }
+        }
+
+        if (this.y < -15) {
+            this.stopTick();
+            this.removeFromParentNode();
+        }
     };
 
     window.Bullet = Bullet;

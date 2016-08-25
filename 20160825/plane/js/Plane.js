@@ -9,25 +9,21 @@
 
         this.x = 550;
         this.y = 20;
+        this.width = 70;
+        this.height = 26;
         this._speedX = -4;
 
-        this.addListener();
+        this.startTick();
     }
 
     Plane.prototype = new Photo();
 
-    Plane.prototype.addListener = function () {
-        var tickerListener = function () {
+    Plane.prototype.onTick = function () {
+        this.x += this._speedX;
 
-            this.x += this._speedX;
-
-            if (this.x < -70) {
-                Ticker.removeListener(tickerListener);
-                Plane.removePlane(this);
-            }
-        }.bind(this);
-
-        Ticker.addListener(tickerListener);
+        if (this.x < -70) {
+            Plane.removePlane(this);
+        }
     };
 
     Plane.createPlane = function () {
@@ -38,8 +34,13 @@
     };
 
     Plane.removePlane = function (plane) {
-        Plane.__planeImageUrls.removeItem(plane);
+        Plane.__planes.removeItem(plane);
         plane.removeFromParentNode();
+        plane.stopTick();
+    };
+
+    Plane.getPlanes = function () {
+        return Plane.__planes;
     };
 
     Plane.__planeImageUrls = [
