@@ -1,0 +1,8 @@
+
+#game {
+    width: 550px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background-image: url("res/background.png");
+}
