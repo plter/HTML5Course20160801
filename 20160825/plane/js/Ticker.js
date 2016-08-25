@@ -10,12 +10,12 @@
 
         addListener: function (tickHandler) {
             this._handlers.push(tickHandler);
-        }
-        ,
+        },
+
         removeListener: function (tickHandler) {
             this._handlers.removeItem(tickHandler);
-        }
-        ,
+        },
+
         start: function () {
             if (!this.running) {
                 this._intervalId = setInterval(function () {
@@ -24,19 +24,17 @@
                     }
                 }.bind(this), 20);
             }
-        }
-        ,
+        },
+
         stop: function () {
             if (this.running) {
                 clearInterval(this._intervalId);
                 this._intervalId = -1;
             }
-        }
-        ,
+        },
+
         get running() {
             return this._intervalId != -1;
         }
-    }
-    ;
-
+    };
 })();

@@ -39,9 +39,16 @@
         Ticker.start();
     }
 
+    function startAddPlane() {
+        game.appendChild(Plane.createPlane().htmlNode);
+
+        setTimeout(startAddPlane, Math.floor(Math.random() * 2000 + 1000));
+    }
+
     (function () {
         createGun();
         addListeners();
         startTick();
+        startAddPlane();
     })();
 })();
