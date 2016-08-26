@@ -27,7 +27,7 @@ class Hi extends Hello {
         console.log("Hi");
     }
 
-    sayHello(): any {
+    sayHello() {
         return super.sayHello();
     }
 }
