@@ -1,0 +1,156 @@
+客户端（前端）：软件的使用者（有可能是手机、平板、电脑）
+服务端（后端）：
+	（新闻）网页->数据->并不是每天都一样->where? 
+	提供数据的地方->服务端
+在服务端 存储数据 
+客户端 更新数据到显示界面
+
+服务端 <---某些协议---> 客户端
+
+HTTP协议简介：
+	介绍：
+		HyperText Transfer Protocol
+		传输方式:客户端->（request请求）->服务端->(response回应)->客户端
+
+	请求（request）:
+	HTTP请求方法
+		GET：是把发送的内容 拼接到 接口地址里面的
+			1、不安全 把请求的内容 放到URL 服务器地址/Member/login/username="xiaoming"&password="1234567"->把发送的内容（帐号密码）暴露在接口里面 
+			2、链接地址 本身有大小的限制(?2kb) 如果发送的内容过多  就不可以使用get
+			3、只要不涉及到  安全问题的请求  都是用get get灵活且速度快
+		POST：把内容放到一个body体中
+			1.没有发送文件 大小的限制 （但是 受服务器硬盘大小的限制）
+			2.传输的内容不会暴露在外面 也是相对比较安全
+
+	请求头：用来匹配 客户端 和服务端 传输的格式的
+		自定义部分
+		Accept-Charset：浏览器可以接受的字符编码集
+		Accept-Language：浏览器可接受的语言
+		Connection：表示是否需要持久连接
+		Host：请求的服务器的域名和端口
+		Cookie：HTTP请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器
+		Accept-Encoding：指定浏览器可以支持的web服务器返回内容压缩编码类型
+		✮✮✮✮✮Accept：指定客户端能够接收的内容类型
+		Date：请求发送的日期和时间
+		Authorization：HTTP授权的授权证书
+		✮✮✮✮✮Content-Type：内容的样式
+	接口：
+		URL：Uniform Resource Locator统一资源定位符 
+			可以通过URL来定义到  某一个资源存在的位置
+		统一的位置 
+		接口地址：
+			1.也是定位到服务端位置的URL 可以通过这个接口 获得或者是传输给服务端数据
+			2.格式：域名（主机的ip地址）/接口
+	请求正文:传输给服务器的内容
+	响应（response）:
+	code：
+		200:成功
+		400:客户端请求语法有误
+		401:请求未经授权
+		403:服务端收到请求，但是拒绝提供服务，一般会在回应的正文中给出原因
+		404:资源、页面不存在
+		500:服务器错误，无法完成客户端请求
+		503:服务端当前不能处理客户端请求，可能在一段时间之后恢复正常
+	data:正文
+		回应给的数据
+		error
+
+Ajax:可以与访问服务器（本地文件）的方法
+	json:一段具有特殊格式的字符串
+	对象:
+	基本语法:$.ajax([settings])
+	参数：
+		1.url:✮✮✮✮✮
+			参数类型：String
+			意义：（默认为当前页地址）请求地址
+		2.method:✮✮✮✮✮
+			参数类型：String 
+			意义：请求方式（post或get）默认为get 注意其他http请求方法，例如put和delete也可以使用，但仅部分浏览器支持，也不建议这么去使用
+		3.timeout:
+			参数类型：Number
+			意义：设置请求超时时间（毫秒） 这个设置会将$.ajaxSetup()方法的全局设置覆盖。
+		4.async:
+			参数类型：Boolean
+			意义：默认设置为true，所有请求均为异步请求
+			同步异步：
+				1.同步：一条线去执行任务，前面一个任务未完成，后面任务不会去执行
+				2.异步：多条线去执行任务 不管前面的任务是否完成  都会继续执行后面的任务
+			注意：如果需要发送同步请求，请将此选项设置为false。注意，同步请求将锁住浏览器，用户其他操作必须等待请求完成才可以执行。
+		5.cache:
+			参数类型：Boolean
+			意义：默认为true（当dataType为script时，默认为false），设置为false将不会从浏览器缓存中加载请求信息。
+		6.data:
+			参数类型：Object或String
+			意义：发送到服务器的数据。如果不是字符串，将自动转换为字符串格式。get请求中将附加在url后。防止这种自动转换，可以查看　　processData选项。对象必须为key/value格式，例如{foo1:"bar1",foo2:"bar2"}转换为&foo1=bar1&foo2=bar2。如果是数组，JQuery将自动为不同值对应同一个名称。例如{foo:["bar1","bar2"]}转换为&foo=bar1&foo=bar2。
+		7.dataType:
+			参数类型：String
+			意义：预期服务器返回的数据类型。如果不指定，JQuery将自动根据http包mime信息返回responseXML或responseText，并作为回调函数参数传递。
+			可用的类型：
+				xml：返回XML文档，可用JQuery处理。
+				html：返回纯文本HTML信息；包含的script标签会在插入DOM时执行。
+				script：返回纯文本JavaScript代码。不会自动缓存结果。除非设置了cache参数。注意在远程请求时（不在同一个域下），所有post请求都将转为get请求。
+				✮✮✮✮✮json：返回JSON数据。
+				jsonp：JSONP格式。使用SONP形式调用函数时，例如myurl?callback=?，JQuery将自动替换后一个“?”为正确的函数名，以执行回调函数。
+				text：返回纯文本字符串。
+		8.beforeSend：
+			参数类型：Function
+			意义：发送请求前可以修改XMLHttpRequest对象的函数，例如添加自定义HTTP头。在beforeSend中如果返回false可以取消本次ajax请求。XMLHttpRequest对象是惟一的参数。
+		        function(XMLHttpRequest){
+		            //调用本次ajax请求时传递的options参数
+		        }
+		9.complete：
+			参数类型：Function
+			意义：请求完成后调用的回调函数（请求成功或失败时均调用）。参数：XMLHttpRequest对象和一个描述成功请求类型的字符串。
+		        function(XMLHttpRequest, textStatus){
+		            this;    //调用本次ajax请求时传递的options参数
+		        }
+		10.success：✮✮✮✮✮
+			参数类型：Function
+			意义：请求成功后调用的回调函数
+			两个参数。
+		        (1)由服务器返回，并根据dataType参数进行处理后的数据
+		        (2)描述状态的字符串
+		        function(data, textStatus){
+		            //data可能是xml、json、html、text等等
+		        }
+		11.error:✮✮✮✮✮
+			参数类型：Function
+			意义：请求失败时被调用的函数。该函数有3个参数，即XMLHttpRequest对象、错误信息、捕获的错误对象(可选)。ajax事件函数如下：
+		       	function(XMLHttpRequest, textStatus, errorThrown){
+		          	//通常情况下textStatus和errorThrown只有其中一个包含信息
+		          	this;   //调用本次ajax请求时传递的options参数
+		       	}
+		12.contentType：
+			参数类型：String
+			意义：当发送信息至服务器时，内容编码类型
+			查找对应值：http://tool.oschina.net/commons
+		13.dataFilter：
+			参数类型：Function
+			意义：给Ajax返回的原始数据进行预处理的函数 它的调用在success之前 提供data和type两个参数。data是Ajax返回的原始数据，type是调用jQuery.ajax时提供的dataType参数。函数返回的值将由jQuery进一步处理。
+		            function(data, type){
+		                //返回处理后的数据
+		                return data;
+		            }
+		14.global：
+			参数类型：Boolean
+			意义：默认为true，表示是否触发全局ajax事件。设置为false将不会触发全局ajax事件，ajaxStart或ajaxStop可用于控制各种ajax事件。
+		15.ifModified：
+			参数类型：Boolean
+			意义：默认为false。仅在服务器数据改变时获取新数据。服务器数据改变判断的依据是Last-Modified头信息。默认值是false，即忽略头信息。
+		16.jsonp：
+			参数类型：String
+			意义：在一个jsonp请求中重写回调函数的名字。该值用来替代在"callback=?"这种GET或POST请求中URL参数里的"callback"部分，例如{jsonp:'onJsonPLoad'}会导致将"onJsonPLoad=?"传给服务器。
+		17.processData：
+			参数类型：Boolean
+			意义：默认为true 默认情况下，发送的数据将被转换为对象（从技术角度来讲并非字符串）以配合默认内容类型"application/x-www-form-urlencoded"。如果要发送DOM树信息或者其他不希望转换的信息，请设置为false。
+		18.scriptCharset：
+			参数类型：String
+			意义：只有当请求时dataType为"jsonp"或者"script"，并且type是GET时才会用于强制修改字符集(charset)。通常在本地和远程的内容编码不同时使用。
+
+
+
+作业：
+	1.http://apistore.baidu.com/apiworks/servicedetail/987.html 请求菜谱接口
+	2.尝试封装网络请求
+	3.通过接口内容  写界面
+

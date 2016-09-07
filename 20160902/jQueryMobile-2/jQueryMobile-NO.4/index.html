@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>jQueryMobile</title>
+    <script src="jQueryMobile/jquery.js"></script>
+    <script src="jQueryMobile/jquery.mobile-1.4.5.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="jQueryMobile/jquery.mobile-1.4.5.css" type="text/css">
+
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed">
+            <h1>首页</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>内容</p>
+            <a href="#detail" class="ui-btn ui-icon-arrow-r ui-btn-icon-top" data-inline="true" data-transition="slide">进入详情</a>
+            <button>按钮</button>
+            <div data-role="controlgroup">
+                <p>垂直组合按钮 (默认):</p>
+                <a href="#" class="ui-btn" id="button1">按钮 1</a>
+                <a href="#" class="ui-btn" id="button2">按钮 2</a>
+                <a href="#" class="ui-btn" id="button3">按钮 3</a>
+            </div>
+            <div data-role="controlgroup" data-type="horizontal">
+                <p>水平组合按钮:</p>
+                <a href="#" class="ui-btn">按钮 1</a>
+                <a href="#" class="ui-btn">按钮 2</a>
+                <a href="#" class="ui-btn">按钮 3</a>
+            </div>
+            <h3>只读有序列表：</h3>
+            <ol data-role="listview" data-autodividers="true">
+                <li>小明</li>
+                <li>小丽</li>
+                <li><a href="#">葫芦娃</a></li>
+            </ol>
+            <h3>有序列表：</h3>
+            <ol data-role="listview" data-autodividers="true">
+                <li><a href="#">小明</a></li>
+                <li><a href="#">小丽</a></li>
+                <li><a href="#">葫芦娃</a></li>
+            </ol>
+            <h3>无序列表：</h3>
+            <ul data-role="listview">
+                <li class="list-divider">科目</li>
+                <li><a href="#">语文</a></li>
+                <li><a href="#">数学</a></li>
+                <li><a href="#">英语</a></li>
+                <li class="list-divider">科目2</li>
+                <li><a href="#">语文</a></li>
+                <li><a href="#">数学</a></li>
+                <li data-icon="location"><a href="#">英语</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-iconpos="top" data-icon="home" class="ui-nodisc-icon ui-alt-icon">首页</a></li>
+                    <li><a href="#find" data-iconpos="top" data-icon="eye" class="ui-nodisc-icon ui-alt-icon">发现</a></li>
+                    <li><a href="#setting" data-iconpos="top" data-icon="gear" class="ui-nodisc-icon ui-alt-icon">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="detail">
+        <div data-role="header" data-position="fixed">
+            <h1>详情</h1>
+            <a href="#" data-role="button" data-rel="back">返回</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>内容</p>
+
+            <div data-role="collapsible-set" data-mini="true">
+            <div data-role="collapsible">
+                <h1>点击我</h1>
+                <p>我是可折叠的内容</p>
+            </div>
+            <div data-role="collapsible">
+                <h1>点击我</h1>
+                <p>我是可折叠的内容</p>
+                <div data-role="collapsible">
+                    <h1>点击我</h1>
+                    <p>我是可折叠的内容</p>
+                </div>
+                <div data-role="collapsible">
+                    <h1>点击我</h1>
+                    <p>我是可折叠的内容</p>
+                </div>
+            </div>
+            </div>
+            <h2>列表图标:</h2>
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#"><img src="img/1.png" alt="监控" class="ui-li-icon">监控</a></li>
+                <li><a href="#"><img src="img/2.png" alt="录像" class="ui-li-icon">录像</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-iconpos="top" data-icon="home" class="ui-nodisc-icon ui-alt-icon">首页</a></li>
+                    <li><a href="#find" data-iconpos="top" data-icon="eye" class="ui-nodisc-icon ui-alt-icon">发现</a></li>
+                    <li><a href="#setting" data-iconpos="top" data-icon="gear" class="ui-nodisc-icon ui-alt-icon">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="find">
+        <div data-role="header" data-position="fixed">
+            <h1>发现</h1>
+        </div>
+        <div>
+            <h2>我的通讯录</h2>
+            <form class="ui-filterable">
+                <input id="myFilter" data-type="search">
+            </form>
+
+            <ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+                <li data-filtertext="www"><a href="#">苹果</a></li>
+                <li><a href="#">Adele</a></li>
+                <li><a href="#">Albert</a></li>
+                <li><a href="#">Billy</a></li>
+                <li><a href="#">Bob</a></li>
+                <li><a href="#">Calvin</a></li>
+                <li><a href="#">Cameron</a></li>
+                <li><a href="#">Chloe</a></li>
+                <li><a href="#">Christina</a></li>
+                <li><a href="#">Diana</a></li>
+                <li><a href="#">Gabriel</a></li>
+                <li><a href="#">Glen</a></li>
+                <li><a href="#">Ralph</a></li>
+                <li><a href="#">Valarie</a></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-iconpos="top" data-icon="home" class="ui-nodisc-icon ui-alt-icon">首页</a></li>
+                    <li><a href="#find" data-iconpos="top" data-icon="eye" class="ui-nodisc-icon ui-alt-icon">发现</a></li>
+                    <li><a href="#setting" data-iconpos="top" data-icon="gear" class="ui-nodisc-icon ui-alt-icon">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="setting">
+        <div data-role="header" data-position="fixed">
+            <h1>发现</h1>
+        </div>
+        <div data-role="main">
+
+            <form method="get" action="">
+                <fieldset class="ui-field-contain">
+                    <label for="name">姓名:</label>
+                    <input type="text" name="name" id="name" placeholder="请输入姓名">
+                    <label for="psw">密码:</label>
+                    <input type="text" name="psw" id="psw" data-clear-btn="true">
+                </fieldset>
+                <input type="reset" data-shadow="false" value="重置">
+                <input type="submit" data-inline="true" value="提交">
+
+            </form>
+
+        </div>
+
+        <!--弹框-->
+        <a href="#popupID" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all" data-position-to="window">弹窗</a>
+        <div data-role="popup" id="popupID">
+            <p>弹窗</p>
+            <a href="#" data-rel="back" class="ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+        </div>
+<br>
+        <a href="#myPop1" data-rel="popup" class="ui-btn ui-btn-inline" data-position-to="#alert">左边</a>
+        <a href="#myPop2" data-rel="popup" class="ui-btn ui-btn-inline" data-position-to="#alert">顶部</a>
+        <a href="#myPop3" data-rel="popup" class="ui-btn ui-btn-inline" data-position-to="#alert">右边</a>
+        <a href="#myPop4" data-rel="popup" class="ui-btn ui-btn-inline" data-position-to="#alert">底部</a>
+
+        <div data-role="popup" id="myPop1" class="ui-content" data-arrow="l">
+            <p>是PHP</p>
+        </div>
+        <div data-role="popup" id="myPop2" class="ui-content" data-arrow="t">
+            <p>是WEB</p>
+        </div>
+        <div data-role="popup" id="myPop3" class="ui-content" data-arrow="r">
+            <p>是iOS</p>
+        </div>
+        <div data-role="popup" id="myPop4" class="ui-content" data-arrow="b">
+            <p>是Andorid</p>
+        </div>
+
+        <p>我是一个开发者<span id="alert" style="color:brown;">注意</span>。</p>
+
+        <a href="#alert11" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">灰色背景弹框</a>
+        <div id="alert11" data-role="popup" class="ui-content" data-overlay-theme="b" data-position-to="window">
+            <a href="#" data-rel="back" class="ui-icon-delete ui-btn-right ui-btn-icon-notext"></a>
+            <p>内容</p>
+        </div>
+
+
+        <div data-role="controlgroup">
+            <legend>请选择您的性别：</legend>
+            <label for="male">男性</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="female">女性</label>
+            <input type="radio" name="gender" id="female" value="female">
+        </div>
+
+        <label for="ballClass">球类</label>
+        <input type="radio" name="like" id="ballClass" value="0" checked>
+        <label for="eat">美食</label>
+        <input type="radio" name="like" id="eat" value="1">
+
+
+        <!--选择菜单-->
+        <!--<select name="day" id="day">-->
+            <!--<option value="1">星期一</option>-->
+            <!--<option value="2">星期二</option>-->
+            <!--<option value="3">星期三</option>-->
+            <!--<option value="4">星期四</option>-->
+            <!--<option value="5">星期五</option>-->
+            <!--<option value="6">星期六</option>-->
+            <!--<option value="7">星期日</option>-->
+        <!--</select>-->
+
+        <!--分组-->
+        <select name="day" id="day" data-native-menu="false" multiple="multiple">
+            <optgroup label="工作日">
+                <option value="1">星期一</option>
+                <option value="2">星期二</option>
+                <option value="3">星期三</option>
+                <option value="4">星期四</option>
+                <option value="5">星期五</option>
+            </optgroup>
+            <optgroup label="周末">
+                <option value="6">星期六</option>
+                <option value="7">星期日</option>
+            </optgroup>
+        </select>
+
+        <!--滑杆-->
+        <input type="range" data-show-value="true" data-popup-enabled="true" data-highlight="true" name="points" id="points" value="0" min="0" max="100" step="10">
+
+        <!--区间滑杆-->
+        <div data-role="rangeslider">
+            <input type="range" data-show-value="true" data-popup-enabled="true" data-highlight="true" name="points" id="mix" value="0" min="0" max="100" step="10">
+            <input type="range" data-show-value="true" data-popup-enabled="true" data-highlight="true" name="points" id="max" value="100" min="0" max="100" step="10">
+        </div>
+
+        <!--开关按钮-->
+        <input type="checkbox" data-role="flipswitch">
+
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-iconpos="top" data-icon="home" class="ui-nodisc-icon ui-alt-icon">首页</a></li>
+                    <li><a href="#find" data-iconpos="top" data-icon="eye" class="ui-nodisc-icon ui-alt-icon">发现</a></li>
+                    <li><a href="#setting" data-iconpos="top" data-icon="gear" class="ui-nodisc-icon ui-alt-icon">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+jQueryMobile
+	表视图
+	    	名字：listview
+	    	用法：使用有序或无序列表
+	    	Demo：
+	    		<ul data-role="listview">
+	                <li><a href="#">语文</a></li>
+	                <li><a href="#">数学</a></li>
+	                <li><a href="#">英语</a></li>
+            	</ul>
+            如果是只读：li里面是内容 不添加a标签
+            如果是可以点击：li里面是内容 添加a标签
+            添加分组标题
+            	1.名字："list-divider"
+            	2.用法：给其中一个li添加"list-divider"这个属性 他就不属于列表中的内容了  是一个标题
+            自动生成分割的标题：data-autodividers="true"
+            
+            设置列表内容的图标：
+            	设置：data-icon 设置的是后面的图标《li》的一部分
+            	移除：data-icon="false"
+            	前面的图标：ui-li-icon 通过img设置 是内容 是放到内容里面的img 
+            过滤内容：
+            	注意事项✭✭✭✭✭：
+            		1.data-filter="true"
+            		2.data-input的值要与input搜索栏的id相同
+            	名字：data-filter="true" 
+            	ul的data-input值要与input搜索栏的id相同
+            	ui-filterable 给搜索栏和内容添加分开的样式
+            	提示词：placeholder="根据名称搜索.."
+            	自定义搜索：
+            		指定搜索的单词  才会被搜索到
+            		<li data-filtertext="www"><a href="#">苹果</a></li>
+            	Demo：
+            		<form class="ui-filterable">
+					     <input id="myFilter" data-type="search" placeholder="根据名称搜索..">
+					</form>
+					<ul data-role="listview" data-filter="true" data-input="#myFilter">
+					    <li><a href="#">苹果</a></li>
+					    <li><a href="#">Agnes</a></li>
+					</ul>
+	主题
+		头部尾部：data-theme="a|b"
+		按钮：ui-btn-b
+		导航栏：data-theme="b"
+		折叠的内容：data-content-theme="b"				
+	事件：
+		可选事件名
+			tap:点击
+			bind()	向元素添加事件处理程序
+			blur()	添加/触发 blur 事件
+			change()	添加/触发 change 事件
+			click()	添加/触发 click 事件
+			dblclick()	添加/触发 double click 事件
+			delegate()	向匹配元素的当前或未来的子元素添加处理程序
+			die()	在版本 1.9 中被移除。移除所有通过 live() 方法添加的事件处理程序
+			error()	在版本 1.8 中被废弃。添加/触发 error 事件
+			event
+				event.currentTarget	在事件冒泡阶段内的当前 DOM 元素
+				event.data	包含当前执行的处理程序被绑定时传递到事件方法的可选数据
+				event.delegateTarget	返回当前调用的 jQuery 事件处理程序所添加的元素
+				event.isDefaultPrevented()	返回指定的 event 对象上是否调用了 event.preventDefault()
+				event.isImmediatePropagationStopped()	返回指定的 event 对象上是否调用了 event.stopImmediatePropagation()
+				event.isPropagationStopped()	返回指定的 event 对象上是否调用了 event.stopPropagation()
+				event.namespace	返回当事件被触发时指定的命名空间
+				event.pageX	返回相对于文档左边缘的鼠标位置
+				event.pageY	返回相对于文档上边缘的鼠标位置
+				event.preventDefault()	阻止事件的默认行为
+				event.relatedTarget	返回当鼠标移动时哪个元素进入或退出
+				event.result	包含由被指定事件触发的事件处理程序返回的最后一个值
+				event.stopImmediatePropagation()	阻止其他事件处理程序被调用
+				event.stopPropagation()	阻止事件向上冒泡到 DOM 树，阻止任何父处理程序被事件通知
+				event.target	返回哪个 DOM 元素触发事件
+				event.timeStamp	返回从 1970 年 1 月 1 日到事件被触发时的毫秒数
+				event.type	返回哪种事件类型被触发
+				event.which	返回指定事件上哪个键盘键或鼠标按钮被按下
+				event.metaKey	事件触发时 META 键是否被按下
+			focus()	添加/触发 focus 事件
+			focusin()	添加事件处理程序到 focusin 事件
+			focusout()	添加事件处理程序到 focusout 事件
+			hover()	添加两个事件处理程序到 hover 事件
+			keydown()	添加/触发 keydown 事件
+			keypress()	添加/触发 keypress 事件
+			keyup()	添加/触发 keyup 事件
+			load()	在版本 1.8 中被废弃。添加一个事件处理程序到 load 事件
+			mousedown()	添加/触发 mousedown 事件
+			mouseenter()	添加/触发 mouseenter 事件
+			mouseleave()	添加/触发 mouseleave 事件
+			mousemove()	添加/触发 mousemove 事件
+			mouseout()	添加/触发 mouseout 事件
+			mouseover()	添加/触发 mouseover 事件
+			mouseup()	添加/触发 mouseup 事件
+			off()	移除通过 on() 方法添加的事件处理程序
+			on()	向元素添加事件处理程序
+			one()	向被选元素添加一个或多个事件处理程序。该处理程序只能被每个元素触发一次
+			$.proxy()	接受一个已有的函数，并返回一个带特定上下文的新的函数
+			ready()	规定当 DOM 完全加载时要执行的函数
+			resize()	添加/触发 resize 事件
+			scroll()	添加/触发 scroll 事件
+			select()	添加/触发 select 事件
+			submit()	添加/触发 submit 事件
+			toggle()	在版本 1.9 中被移除。添加 click 事件之间要切换的两个或多个函数
+			trigger()	触发绑定到被选元素的所有事件
+			triggerHandler()	触发绑定到被选元素的指定事件上的所有函数
+			unbind()	从被选元素上移除添加的事件处理程序
+			undelegate()	从现在或未来的被选元素上移除事件处理程序
+			unload()	在版本 1.8 中被废弃。添加事件处理程序到 unload 事件
+		tap：
+			1.tap 事件类似于 jQuery click() 方法 用户轻击一个元素时触发
+			2.语法：$("selector").on("tap",function(event){...})
+	弹窗：
+		名字：popup
+		1.触发的按钮需添加data-rel 指定他的类型为"popup"
+		2.弹窗的内容 只有当点击按钮的时候才会被显示 可以是任意的内容
+		3.显示弹窗的内容有边距ui-content
+		4.关闭弹窗
+			1.方法：返回按钮 设置方向 和图标
+			2.示例<a href="#" data-rel="back" class="ui-icon-delete ui-btn-icon-notext ui-btn-right"></a> 
+		5.默认点击弹窗其他位置可以消失，可设置位不消失：data-dismissible="false"
+		6.弹窗的定位：data-position-to
+			1.window
+			2.元素ID
+			3.origin默认
+		7.也可给弹框添加动画效果 data-transition
+		8.弹框的箭头指向显示：data-arrow="l" 可使用data-position-to ID去指向箭头指向的元素
+			t：上
+			b：下
+			l：左
+			r：右
+		9.设置弹出框底部出现灰色背景覆盖内容：data-overlay-theme="b"
+	交互事件
+		触摸事件
+			tap
+			taphold长按
+			swipe滑动
+			swipeleft向左滑动
+			swiperight向右滑动
+		滚屏事件
+			scroll
+			scrollstart开始滚动
+			scrollstop停止滚动
+		方向改变事件
+			orientationchange
+			$(window).on("orientationchange",function(event){
+    			alert("方向改变为: " + event.orientation);
+  			}); 
+	表单
+		介绍：
+			1、概要：表单中包含了很多表单元素，如：文本框、文本域、单选框、复选框、下拉列表、按钮，可以让用户输入内容，表单可以把输入的内容提交数据到服务器，与服务器进行交互
+			2、重要方法介绍：
+				method：指定传输数据的方式 get post
+				action：提交数据的位置 www.xxx.com/user/login
+			3.jQueryMoble的表单为咱们添加了表单的样式
+			4.可使用的表单元素
+				文本输入框
+				搜索输入框
+				单选按钮
+				复选框
+				选择菜单
+				滑动条
+				翻转拨动开关
+
+		使用：
+			1.ui-hidden-accessible 可隐藏label
+			2.placeholder可添加提示
+			3.输入框内添加X号按钮data-clear-btn="true"
+			4.这些会被自动显示成移动端按钮的样式button、reset、submit
+				data-corners:指定按钮是否有圆角
+				data-icon:指定按钮图标
+				data-iconpos:指定图标位置
+				data-inline:指定是否内联按钮
+				data-mini:指定是否为迷你按钮
+				data-shadow:指定按钮是否添加阴影效果 默认是存在的
+			5.如果想让label和input适应屏幕宽度，可添加字段容器
+				1.带有ui-field-contain的div、fieldset
+				2.注意这是针对移动端的 
+			6.表单输入格式
+				1.邮箱：type="email"
+				2.日期：type="date"
+			7.搜索栏：type="search"
+			8.legend定义标题
+			9.单选按钮:radio
+				 <div data-role="controlgroup">
+      				<legend>请选择您的性别：</legend>
+        			<label for="male">男性</label>
+        			<input type="radio" name="gender" id="male" value="male">
+        			<label for="female">女性</label>
+        			<input type="radio" name="gender" id="female" value="female"> 
+      			</div>
+      		10.复选按钮：checkbox 可使用 checked勾选默认选项
+      			<label for="ballClass">球类</label>
+        		<input type="checkbox" name="like" id="ballClass" value="0" checked>
+        		<label for="eat">美食</label>
+        		<input type="checkbox" name="like" id="eat" value="1">
+			9.选择菜单
+				<select name="day" id="day">
+         			<option value="1">星期一</option>
+         			<option value="2">星期二</option>
+         			<option value="3">星期三</option>
+         			<option value="4">星期四</option>
+         			<option value="5">星期五</option>
+         			<option value="6">星期六</option>
+         			<option value="7">星期日</option>
+        		</select>
+        	10.给选择列表分组：optgroup
+        		<select name="day" id="day">
+            		<optgroup label="工作日">
+                		<option value="1">星期一</option>
+                		<option value="2">星期二</option>
+                		<option value="3">星期三</option>
+                		<option value="4">星期四</option>
+                		<option value="5">星期五</option>
+            		</optgroup>
+            		<optgroup label="周末">
+                		<option value="6">星期六</option>
+                		<option value="7">星期日</option>
+            		</optgroup>
+        		</select>
+        	11.自定义选择菜单：data-native-menu="false"
+        	12.多选：multiple="multiple"
+        	13.滑杆<input type="range">
+        		参数：
+	        		max最大值
+					min最小值
+					step数字间隔
+					value默认值
+					data-show-value="true":实时显示value
+					data-popup-enabled="true":弹出窗口显示内容
+					data-highlight="true":更改滑动过去的值 高亮
+				Demo：
+					<input type="range" name="points" id="points" value="0" min="0" max="100">
+			14.区间滑杆
+				1.在滑杆的外面套一层：rangeslider
+			15.开关按钮：flipswitch
+				1.使用<input type="checkbox"> 指定角色为flipswitch
+				2.修改开关的文字data-on-text、data-off-text
+				3.默认开启：checked
+
+	作业：
+		1.根绝按钮组的内容  提示 文本中的重点
+		2.参照邮箱 完成整个界面
+		3.找一个参照的网站 模仿着 写一个静态页面 （下周）
+

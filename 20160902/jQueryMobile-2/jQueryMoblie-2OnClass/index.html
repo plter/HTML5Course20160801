@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>jQueryMobile-NO.2</title>
+    <script src="jQueryMobile/jquery.js"></script>
+    <script src="jQueryMobile/jquery.mobile-1.4.5.js"></script>
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="jQueryMobile/jquery.mobile-1.4.5.css" type="text/css">
+
+</head>
+<body>
+
+<div data-role="page" id="home">
+    <!--头部-->
+    <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>首页</h1>
+    </div>
+
+    <!--内容-->
+    <div data-role="main" class="ui-content">
+
+
+
+        <br>
+
+        <!--只读的列表 没有点击事件-->
+        <ul data-role="listview">
+            <li>11111</li>
+            <li>22222</li>
+            <li>33333</li>
+            <li>44444</li>
+            <li>55555</li>
+            <li>66666</li>
+            <li>77777</li>
+            <li>88888</li>
+        </ul>
+
+        <!--可以点击-->
+        <ul data-role="listview">
+            <li><a href="#">111111</a></li>
+            <li><a href="#">2222222</a></li>
+            <li><a href="#">333333</a></li>
+            <li><a href="#">4444444</a></li>
+        </ul>
+
+        <br>
+        <!--分组-->
+        <ul data-role="listview">
+            <!--list-divider 来指定组名-->
+            <!--在其中的一个li里面去指定-->
+            <li data-role="list-divider">同学</li>
+            <li>小明</li>
+            <li>小红</li>
+
+            <li data-role="list-divider">同事</li>
+            <li>小张</li>
+            <li>小李</li>
+            <li>小孟</li>
+        </ul>
+
+        <br>
+        <ul data-role="listview">
+            <li data-icon="mail">
+                <a href="#">
+                    <img src="image/home.png" class="ui-li-icon" alt="">
+                    邮箱
+                </a>
+            </li>
+            <li data-icon="false"><a href="#setting">设置</a></li>
+            <li><a href="#friends">朋友</a></li>
+        </ul>
+    </div>
+
+    <!--底部-->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-role="button">首页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="friends">
+    <div data-role="header">
+        <h1>朋友</h1>
+        <a href="#" data-role="button" data-rel="back">返回</a>
+    </div>
+    <div data-role="main" class="ui-content"  id="friendView" style="height: 800px">
+        <div id="tttt">1234567543224565</div>
+        <!--
+        过滤表视图里面的内容:
+        ✭✭✭✭✭
+        1.设置ul的data-filter="true"
+        2.ul的data-input要与搜索栏的id相同
+
+        搜索栏的表单:
+        1.设置表单的class="ui-filterable"
+        2.定义搜索栏的样式data-type="search"
+        -->
+        <form action=" " class="ui-filterable">
+            <input type="text" data-type="search" id="searchFriend">
+        </form>
+        <!--
+        自动分组 并添加标题
+        data-autodividers="true"
+        -->
+        <ul data-role="listview" data-input="#searchFriend" data-filter="true" data-autodividers="true" id="qqqqqq">
+            <!--
+            自定义过滤
+            只有当 搜索的内容 与指定的内容  匹配的时候 才会搜索出来
+            -->
+            <li data-filtertext="yyyyyyyy"><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">mobile</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon"> 葫芦娃</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">葫图</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">Billy</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">Bob</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">Calvin</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">Cameron</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">Chloe</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">Christina</a></li>
+            <li><a href="#"><img src="image/home.png" alt="" class="ui-li-icon">Diana</a></li>
+            <li><a href="#">Gabriel</a></li>
+            <li><a href="#">Glen</a></li>
+            <li><a href="#">Ralph</a></li>
+            <li><a href="#">Valarie</a></li>
+        </ul>
+
+
+
+    </div>
+
+
+</div>
+
+<div data-role="page" id="setting" data-position="fixed">
+    <div data-role="header">
+        <a href="#" data-type="button" data-rel="back">返回</a>
+        <h1>设置</h1>
+    </div>
+
+    <!--<div data-role="main" class="ui-content" id="test" style="width: 500px;height: 500px;background:yellow;">-->
+    <div data-role="main" class="ui-content">
+    <!--表单-->
+        <form action="">
+            <legend>标题</legend>
+            <div class="ui-field-contain">
+                <label for="nikeName">用户名:</label>
+                <input type="text" id="nikeName" name="nikeName" placeholder="请填写您的昵称" data-clear-btn="true">
+
+                <label for="date">生日:</label>
+                <!--type="email"-->
+                <!--type="password"-->
+                <!--type="search"-->
+                <input type="date" id="date" name="date">
+
+
+             <div data-role="controlgroup">
+                 <!--name用来确定 是不是同一个组-->
+                 <!--checked 默认选择-->
+                 <label for="1">男</label>
+                 <input type="radio" id="1" name="sex">
+                 <label for="2">女</label>
+                 <input type="radio" id="2" name="sex" checked>
+
+             </div>
+
+                <!--复选按钮 checkbox-->
+                <div data-role="controlgroup">
+                    <label for="webSkill">前端</label>
+                    <input type="checkbox" id="webSkill" name="skill">
+                    <label for="nodejs">node.js</label>
+                    <input type="checkbox" id="nodejs" name="skill">
+                    <label for="nav">原生</label>
+                    <input type="checkbox" id="nav" name="skill">
+                </div>
+
+                <!--<select name="day" id="day" data-native-menu="false">-->
+                    <!--<optgroup label="吉利数字">-->
+                        <!--<option value="1">1111</option>-->
+                        <!--<option value="2">222</option>-->
+                    <!--</optgroup>-->
+
+                    <!--<optgroup label="普通数字">-->
+                        <!--<option value="ww">333</option>-->
+                        <!--<option>4444</option>-->
+                    <!--</optgroup>-->
+
+                <!--</select>-->
+
+                <!--
+                多选不可以使用原生的样式
+                必须把data-native-menu="false"
+                -->
+                <label for="like">爱好</label>
+                <select name="like" id="like" data-native-menu="false" multiple="multiple">
+                    <option value="1">足球</option>
+                    <option value="2">蓝球</option>
+                    <option value="3">乒乓球</option>
+                    <option value="4">保龄球</option>
+                </select>
+
+                <label for="range"></label>
+                <input type="range" id="range" name="range" max="100" min="0" value="30" step="10" data-show-value="true" data-popup-enabled="true" data-highlight="true">
+
+
+                <div data-role="rangeslider">
+                    <label for="min"></label>
+                    <input type="range" min="0" max="100" id="min">
+                    <label for="max"></label>
+                    <input type="range" min="0" max="100" id="max" value="80">
+                </div>
+            </div>
+
+            <!--开关按钮-->
+            <label for="on"></label>
+            <input type="checkbox" data-role="flipswitch" id="on" >
+
+            <label for="off"></label>
+            <input type="checkbox" data-role="flipswitch" id="off"  data-on-text="有电" data-off-text="安全" checked>
+
+            <input type="reset" value="重置" data-corners="false" data-shadow="false">
+            <input type="submit" value="提交" data-mini="true">
+        </form>
+
+
+
+
+
+
+        <!--弹窗-->
+        <!--
+        弹窗的名字popup
+        是隐藏的 当点击data-rel="popup"的按钮的时候 才回去显示
+        当按钮 点击的时候  切换另一个界面
+        #popupID
+
+        一般 禁用 点击其他位置  取消显示 弹出窗 咱们会配合使用data-overlay-theme="b"
+        -->
+
+        <a href="#showAlert" data-rel="popup" data-role="button" data-transition="turn">提示</a>
+        <div data-role="popup" id="showAlert" class="ui-content" data-dismissible="false" data-position-to="#web" data-arrow="t" data-overlay-theme="b">
+            <a href="#" data-rel="back" class="ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+            <p>弹出的内容</p>
+            <button>按钮</button>
+        </div>
+
+        <!--<div id="point" style="width: 500px;height: 500px;background:brown;">-->
+            <p>你是做什么工作的?<span id="web">web前端</span>?还是<span>后台开发</span>?</p>
+
+
+                <!--<ul data-role="listview">-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+                    <!--<li></li>-->
+
+
+                <!--</ul>-->
+
+
+        <!--</div>-->
+
+    </div>
+
+</div>
+
+</body>
+</html>
