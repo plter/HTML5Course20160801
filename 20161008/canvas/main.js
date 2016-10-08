@@ -33,7 +33,7 @@
 
     function createRectangle() {
         rect = new ucai.Rectangle(100, 100);
-        rect.x = 100;
+        // rect.x = 100;
         rect.y = 100;
         rect.color = "#000000";
 
@@ -41,6 +41,8 @@
     }
 
     function render() {
+
+        ucai.RenderHandler.runHandlers();
 
         clearCanvas();
 
@@ -50,8 +52,6 @@
     }
 
     // function move() {
-    //
-    //
     //     var id = setInterval(function () {
     //         rect.x++;
     //
@@ -68,7 +68,8 @@
         createCanvas();
         createRectangle();
         render();
-        // move();
+
+        ucai.PropertyAnimation(rect, "x", 100, 200, 200);
     }
 
     init();

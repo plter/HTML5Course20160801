@@ -23,16 +23,16 @@ window.ucai = window.ucai || {};
 
     var p = Rectangle.prototype = new ucai.Shape();
 
-    p.onUpdate = function () {
-        this.rotation += 0.01;
-    };
+    // p.onUpdate = function () {
+    //     this.rotation += 0.01;
+    // };
 
     /**
      *
      * @param {CanvasRenderingContext2D} context
      */
     p.onDraw = function (context) {
-        context.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
+        context.fillRect(0, 0, this.width, this.height);
     };
 
     Object.defineProperties(p, {
