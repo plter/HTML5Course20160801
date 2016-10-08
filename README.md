@@ -1,10 +1,14 @@
 # HTML5Course20160801
 
 #作业安排
+##20161008
+1. 完成游戏《你是谁》，效果参考 [http://plter.github.io/h5demos/WhatAreYou/index.html](http://plter.github.io/h5demos/WhatAreYou/index.html)
+
+
 ##20160907
-1.http://apistore.baidu.com/apiworks/servicedetail/987.html 请求菜谱接口
-2.尝试封装网络请求
-3.通过接口内容  写界面
+1. http://apistore.baidu.com/apiworks/servicedetail/987.html 请求菜谱接口
+2. 尝试封装网络请求
+3. 通过接口内容  写界面
 
 #作业安排
 ##20160824
