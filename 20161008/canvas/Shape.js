@@ -11,7 +11,9 @@ window.ucai = window.ucai || {};
      * @constructor Shape
      */
     function Shape() {
-
+        this._x = 0;
+        this._y = 0;
+        this._rotation = 0;
     }
 
     var p = Shape.prototype;
@@ -40,6 +42,14 @@ window.ucai = window.ucai || {};
             get: function () {
                 return this._color;
             }
+        },
+        rotation: {
+            set: function (value) {
+                this._rotation = value;
+            },
+            get: function () {
+                return this._rotation;
+            }
         }
     });
 
@@ -48,8 +58,11 @@ window.ucai = window.ucai || {};
      * @param {CanvasRenderingContext2D} context
      */
     p.render = function (context) {
+        this.onUpdate();
+
         context.save();
         context.translate(this.x, this.y);
+        context.rotate(this.rotation);
         context.fillStyle = this.color;
 
         this.onDraw(context);
@@ -63,6 +76,12 @@ window.ucai = window.ucai || {};
      * @param context
      */
     p.onDraw = function (context) {
+    };
+
+    /**
+     * @abstract
+     */
+    p.onUpdate = function () {
     };
 
     ucai.Shape = Shape;

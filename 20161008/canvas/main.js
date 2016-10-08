@@ -16,6 +16,8 @@
      */
     var context;
 
+    var rect;
+
     function createCanvas() {
         canvas = document.createElement("canvas");
         canvas.width = CANVAS_WIDTH;
@@ -29,24 +31,44 @@
         context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     }
 
-    function drawRect() {
-
-        var rect = new ucai.Rectangle(100, 100);
+    function createRectangle() {
+        rect = new ucai.Rectangle(100, 100);
         rect.x = 100;
         rect.y = 100;
         rect.color = "#000000";
+
+        render();
+    }
+
+    function render() {
+
+        clearCanvas();
+
         rect.render(context);
 
-        var circle = new ucai.Circle(50);
-        circle.color = "#ff0000";
-        circle.x = 50;
-        circle.y = 50;
-        circle.render(context);
+        requestAnimationFrame(render);
     }
+
+    // function move() {
+    //
+    //
+    //     var id = setInterval(function () {
+    //         rect.x++;
+    //
+    //         clearCanvas();
+    //         rect.render(context);
+    //
+    //         if (rect.x > 200) {
+    //             clearInterval(id);
+    //         }
+    //     }, 20);
+    // }
 
     function init() {
         createCanvas();
-        drawRect();
+        createRectangle();
+        render();
+        // move();
     }
 
     init();

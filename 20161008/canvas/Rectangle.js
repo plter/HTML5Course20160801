@@ -7,6 +7,13 @@ window.ucai = window.ucai || {};
 (function () {
 
 
+    /**
+     * @class Rectangle
+     * @extends Shape
+     * @param width
+     * @param height
+     * @constructor
+     */
     function Rectangle(width, height) {
         this._width = width;
         this._height = height;
@@ -14,16 +21,18 @@ window.ucai = window.ucai || {};
         ucai.Shape.call(this);
     }
 
-    Rectangle.prototype = new ucai.Shape();
+    var p = Rectangle.prototype = new ucai.Shape();
 
-    var p = Rectangle.prototype;
+    p.onUpdate = function () {
+        this.rotation += 0.01;
+    };
 
     /**
      *
      * @param {CanvasRenderingContext2D} context
      */
     p.onDraw = function (context) {
-        context.fillRect(0, 0, this.width, this.height);
+        context.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
     };
 
     Object.defineProperties(p, {
