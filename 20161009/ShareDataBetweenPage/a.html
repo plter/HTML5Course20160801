@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+
+    <label>
+        输入数据
+        <input type="text" name="data">
+    </label>
+
+    <input type="submit" value="保存">
+</form>
+
+
+<script>
+
+    var form = document.getElementById("form");
+    form.onsubmit = function (e) {
+        e.preventDefault();
+
+        var dataText = form["data"];
+
+        localStorage.setItem("data", dataText.value);
+    }
+</script>
+</body>
+</html>

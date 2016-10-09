@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+
+<script>
+
+
+    var container = document.getElementById("container");
+
+
+    function readData() {
+
+        var data = localStorage.getItem("data");
+
+        if (data) {
+            container.innerHTML = data;
+        } else {
+            container.innerHTML = "没有数据";
+        }
+    }
+
+    readData();
+
+    setInterval(readData, 1000);
+</script>
+</body>
+</html>
