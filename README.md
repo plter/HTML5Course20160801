@@ -1,6 +1,10 @@
 # HTML5Course20160801
 
 #作业安排
+
+##20161010
+1. 写出新浪微博头像编辑工具
+
 ##20161008
 1. 完成游戏《你是谁》，效果参考 [http://plter.github.io/h5demos/WhatAreYou/index.html](http://plter.github.io/h5demos/WhatAreYou/index.html)
 

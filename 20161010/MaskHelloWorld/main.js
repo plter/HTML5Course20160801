@@ -39,7 +39,6 @@
         requestAnimationFrame(render);
     }
 
-
     function init() {
         render();
     }
