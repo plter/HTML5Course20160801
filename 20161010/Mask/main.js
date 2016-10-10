@@ -33,8 +33,9 @@
         context.clip();
 
         context.drawImage(img, 0, 0);
-
         context.restore();
+
+        context.fillRect(0, 0, 100, 100);
 
         requestAnimationFrame(render);
     }
