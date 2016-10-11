@@ -119,9 +119,7 @@
         editPhotoCanvasContext.restore();
 
         editPhotoCanvasContext.save();
-
         clipRect.draw(editPhotoCanvasContext);
-
         editPhotoCanvasContext.drawImage(snappedPhotoCanvas, 0, 0, 400, 300);
         editPhotoCanvasContext.restore();
 
