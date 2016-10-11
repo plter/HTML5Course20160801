@@ -4,13 +4,38 @@
 
 (function () {
 
-    var btnShowCamera, btnSnap, camera, videoElement, canvas;
-    var context;
+    var btnShowCamera, btnSnap, camera, videoElement;
+
+    //用于编辑照片的Canvas
+    var editPhotoCanvas;
+    var editPhotoCanvasContext;
+
+    //用于遮罩的矩形
+    var clipRect = new hi.ClipRect(100, 50, 200, 200);
+    var dragOffsetX, dragOffsetY;
+
+    //拍照所使用的Canvas
+    var snappedPhotoCanvas = document.createElement("canvas");
+    snappedPhotoCanvas.width = 400;
+    snappedPhotoCanvas.height = 300;
+    var snappedPhotoCanvasContext = snappedPhotoCanvas.getContext("2d");
+
+    var editPhotoContainer;
+    var previewCanvas;
+    var previewCanvasContext;
+
+    var btnSaveImage;
 
     function findUIControls() {
-        canvas = $("#canvas");
-        context = canvas[0].getContext("2d");
-        canvas.hide();
+        editPhotoContainer = $("#edit-photo-container");
+        editPhotoContainer.hide();
+
+        editPhotoCanvas = $("#canvas");
+        editPhotoCanvasContext = editPhotoCanvas[0].getContext("2d");
+
+        previewCanvas = $("#preview");
+        previewCanvasContext = previewCanvas[0].getContext("2d");
+
         videoElement = $("#video");
 
         camera = $("#camera");
@@ -21,16 +46,40 @@
 
         btnSnap = $("#btn-snap");
         btnSnap.button();
+
+        btnSaveImage = $("#btn-save-image");
+        btnSaveImage.button();
     }
 
     function addListeners() {
         btnShowCamera.on("click", function () {
             showCamera();
-            canvas.hide();
+            editPhotoContainer.hide();
         });
 
         btnSnap.on("click", function () {
             snapVideoToCanvas();
+        });
+
+        btnSaveImage.on("click", function () {
+            window.open(previewCanvas[0].toDataURL());
+        });
+
+        editPhotoCanvas.on("mousedown", function (e) {
+
+            dragOffsetX = clipRect.x - e.offsetX;
+            dragOffsetY = clipRect.y - e.offsetY;
+
+            editPhotoCanvas.on("mousemove", function (mouseMoveEvent) {
+                clipRect.x = mouseMoveEvent.offsetX + dragOffsetX;
+                clipRect.y = mouseMoveEvent.offsetY + dragOffsetY;
+
+                drawEditPhotoCanvas();
+            });
+            editPhotoCanvas.on("mouseup", function (mouseUpEvent) {
+                editPhotoCanvas.off("mousemove");
+                editPhotoCanvas.off("mouseup");
+            });
         });
     }
 
@@ -48,31 +97,40 @@
 
     function snapVideoToCanvas() {
         camera.hide();
-        canvas.show();
+        editPhotoContainer.show();
 
-        drawCanvas();
+        snappedPhotoCanvasContext.clearRect(0, 0, 400, 300);
+        snappedPhotoCanvasContext.drawImage(videoElement[0], 0, 0, 400, 300);
+
+        drawEditPhotoCanvas();
     }
 
-    function drawCanvas() {
-        context.save();
-        context.drawImage(videoElement[0], 0, 0, 400, 300);
-        context.restore();
+    function drawEditPhotoCanvas() {
+        editPhotoCanvasContext.clearRect(0, 0, 400, 300);
 
-        context.save();
-        context.globalAlpha = 0.5;
-        context.fillStyle = "#ffffff";
-        context.fillRect(0, 0, 400, 300);
-        context.restore();
+        editPhotoCanvasContext.save();
+        editPhotoCanvasContext.drawImage(snappedPhotoCanvas, 0, 0, 400, 300);
+        editPhotoCanvasContext.restore();
 
-        context.save();
+        editPhotoCanvasContext.save();
+        editPhotoCanvasContext.globalAlpha = 0.5;
+        editPhotoCanvasContext.fillStyle = "#ffffff";
+        editPhotoCanvasContext.fillRect(0, 0, 400, 300);
+        editPhotoCanvasContext.restore();
 
-        context.beginPath();
-        context.rect(0, 0, 200, 200);
-        context.closePath();
-        context.clip();
+        editPhotoCanvasContext.save();
 
-        context.drawImage(videoElement[0], 0, 0, 400, 300);
-        context.restore();
+        clipRect.draw(editPhotoCanvasContext);
+
+        editPhotoCanvasContext.drawImage(snappedPhotoCanvas, 0, 0, 400, 300);
+        editPhotoCanvasContext.restore();
+
+        drawPreviewCanvas();
+    }
+
+    function drawPreviewCanvas() {
+        previewCanvasContext.clearRect(0, 0, 200, 200);
+        previewCanvasContext.drawImage(snappedPhotoCanvas, clipRect.x, clipRect.y, 200, 200, 0, 0, 200, 200);
     }
 
     function init() {

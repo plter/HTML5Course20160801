@@ -17,9 +17,12 @@
     <video autoplay="autoplay" width="400" height="300" id="video"></video>
     <button id="btn-snap">拍照</button>
 </div>
-<canvas style="display: block;" id="canvas" width="400" height="300"></canvas>
-
-
+<div id="edit-photo-container">
+    <canvas style="display: block;" id="canvas" width="400" height="300"></canvas>
+    <canvas style="display: inline-block;" id="preview" width="200" height="200"></canvas>
+    <button id="btn-save-image">保存图片</button>
+</div>
+<script src="ClipRect.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
