@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="node_modules/jqueryui/jquery-ui.min.css">
+    <link rel="stylesheet" href="node_modules/jqueryui/jquery-ui.theme.min.css">
+
+    <script src="node_modules/jqueryui/external/jquery/jquery.js"></script>
+    <script src="node_modules/jqueryui/jquery-ui.min.js"></script>
+
+</head>
+<body>
+<button id="btn-show-camera">自拍头像</button>
+<div id="camera">
+    <video autoplay="autoplay" width="400" height="300" id="video"></video>
+    <button id="btn-snap">拍照</button>
+</div>
+<canvas style="display: block;" id="canvas" width="400" height="300"></canvas>
+
+
+<script src="main.js"></script>
+</body>
+</html>
