@@ -5,7 +5,7 @@
 (function () {
 
     function start() {
-        var total = 10000;
+        var total = 100000;
         for (var i = 0; i <= total; i++) {
             console.log(i);
 
