@@ -6,13 +6,19 @@ router.get('/', function (req, res, next) {
     res.render('index', {title: 'Express'});
 });
 
-router.get("/draw", function (req, res) {
+router.post("/draw", function (req, res) {
 
-    let x = req.query.x,
-        y = req.query.y,
-        width = req.query.width,
-        height = req.query.height,
-        color = req.query.color;
+    // let x = req.query.x,
+    //     y = req.query.y,
+    //     width = req.query.width,
+    //     height = req.query.height,
+    //     color = req.query.color;
+
+    let x = req.body.x,
+        y = req.body.y,
+        width = req.body.width,
+        height = req.body.height,
+        color = req.body.color;
 
     res.send(`
 <html>
