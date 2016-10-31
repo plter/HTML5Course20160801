@@ -27,3 +27,5 @@ s.sayHello();
 // var obj = {name: "ucai", age: 10};
 // var {name, age}=obj;
 // console.log(name, age);
+
+console.log(__filename, __dirname);
