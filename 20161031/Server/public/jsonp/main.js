@@ -13,7 +13,7 @@
 
     function load() {
         var script = document.createElement("script");
-        script.src = "http://localhost:3000/data.jsonp";
+        script.src = "http://localhost:3000/data.js";
         document.body.appendChild(script);
     }
 

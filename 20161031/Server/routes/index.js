@@ -23,7 +23,7 @@ router.get("/data.json", function (req, res) {
     res.json({name: "ucai", age: 10});
 });
 
-router.get("/data.jsonp", function (req, res) {
+router.get("/data.js", function (req, res) {
     res.send("callback('Hello World');");
 });
 
