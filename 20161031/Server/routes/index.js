@@ -27,4 +27,10 @@ router.get("/data.js", function (req, res) {
     res.send("callback('Hello World');");
 });
 
+router.get("/data.jsonp", function (req, res) {
+
+    var resposeData = "Hello World"
+    res.send(`${req.query.callback}("${resposeData}")`);
+});
+
 module.exports = router;

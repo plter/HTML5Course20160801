@@ -5,17 +5,32 @@
 
 (function () {
 
-    function callback(data) {
-        console.log(data);
-    }
+    // function callback(data) {
+    //     console.log(data);
+    // }
+    //
+    // window.callback = callback;
+    //
+    // function load() {
+    //     var script = document.createElement("script");
+    //     script.src = "http://localhost:3000/data.js";
+    //     document.body.appendChild(script);
+    // }
+    //
+    // load();
 
-    window.callback = callback;
 
-    function load() {
+    function jsonpLoad(url, callback) {
+        var callbackName = "ucaicallback" + Date.now() + Math.floor(Math.random() * 100000000)
+        window[callbackName] = callback;
+
         var script = document.createElement("script");
-        script.src = "http://localhost:3000/data.js";
+        script.src = url + "?callback=" + callbackName + "&_=" + Math.random();
         document.body.appendChild(script);
     }
 
-    load();
+    jsonpLoad("http://localhost:3000/data.jsonp", function (data) {
+        console.log(data);
+    });
+
 })();
