@@ -2,18 +2,20 @@
  * Created by plter on 2016/10/31.
  */
 
+
 (function () {
 
-    // $.get("http://localhost:3000/data").done(function (data) {
-    //     console.log(data);
-    // });
-
-    $.ajax({
-        url: "http://localhost:3000/data",
-        method: "GET",
-        dataType: "jsonp"
-    }).done(function (data) {
+    function callback(data) {
         console.log(data);
-    });
+    }
 
+    window.callback = callback;
+
+    function load() {
+        var script = document.createElement("script");
+        script.src = "http://localhost:3000/data.jsonp";
+        document.body.appendChild(script);
+    }
+
+    load();
 })();
