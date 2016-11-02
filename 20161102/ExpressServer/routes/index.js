@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const multer = require("multer");
-const upload = multer();
+const upload = multer({dest: "public/uploads"});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -34,6 +34,10 @@ router.post("/hello.json", (req, res)=> {
         var obj = JSON.parse(allData.toString());
         res.json({message: `Your name is ${obj.user},your age is ${obj.age}`});
     });
+});
+
+router.post("/upload.image", upload.single("img"), function (req, res) {
+    res.render("UploadImageHandler", {imagePath: `/uploads/${req.file.filename}`});
 });
 
 module.exports = router;
