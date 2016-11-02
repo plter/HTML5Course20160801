@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const multer = require("multer");
+const upload = multer();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -12,15 +14,11 @@ router.get('/hello', function (req, res) {
 });
 
 router.post("/hello", function (req, res) {
-    // var str = "";
-    // req.on("data", function (data) {
-    //     str += data;
-    // });
-    // req.on("end", function () {
-    //     console.log(str);
-    // });
-
     res.send(`Hello ${req.body.user}`);
+});
+
+router.post("/upload", upload.none(), function (req, res) {
+    res.send(`Hello ${req.body.user},and your age is ${req.body.age}`);
 });
 
 module.exports = router;
