@@ -17,8 +17,12 @@
         xhr.onload = function () {
             resultDiv.innerHTML = xhr.responseText;
         };
-        xhr.open("GET", "/hello?user=" + this['user'].value);
-        xhr.send();
+        // xhr.open("GET", "/hello?user=" + this['user'].value);
+        // xhr.send();
+
+        xhr.open("POST", "/hello");
+        xhr.setRequestHeader("Content-type", 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.send("user=" + this['user'].value);
     });
 
 })();
