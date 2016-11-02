@@ -22,9 +22,13 @@ router.post("/upload", upload.none()/*只接受上传文本数据*/, function (r
 });
 
 router.post("/hello.json", (req, res)=> {
-    let allData = Buffer.alloc(0);
+    let allData;
     req.on("data", data=> {
-        allData = Buffer.concat([allData, data]);
+        if (allData) {
+            allData = Buffer.concat([allData, data]);
+        } else {
+            allData = data;
+        }
     });
     req.on("end", ()=> {
         var obj = JSON.parse(allData.toString());
