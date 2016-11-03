@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+<h1><%= title %></h1>
+
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>用户id</th>
+            <th>用户名</th>
+            <th>年龄</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i = 0;i < users.length;i++){
+            var user = users[i];
+        %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.user %></td>
+            <td><%= user.age %></td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
