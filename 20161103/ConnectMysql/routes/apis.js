@@ -34,4 +34,24 @@ router.get("/delete", function (req, res) {
     });
 
 });
+
+
+router.post("/adduser", function (req, res) {
+    var conn = createConn();
+    conn.connect(function (err) {
+        if (!err) {
+            conn.query("INSERT INTO `users` (`user`,`pass`,`age`) VALUES (?,?,?)",
+                [req.body.user, req.body.pass, req.body.age], function (err) {
+                    if (!err) {
+                        res.json({state: 1});//成功
+                    } else {
+                        res.json({state: 5});//执行添加语句失败
+                    }
+                });
+        } else {
+            res.json({state: 4});//添加失败
+        }
+    })
+});
+
 module.exports = router;

@@ -19,4 +19,20 @@
         });
     });
 
+    $("#form-add").submit(function (e) {
+        e.preventDefault();
+
+        $.post("/apis/adduser", {
+            user: this["user"].value,
+            pass: this["pass"].value,
+            age: this["age"].value
+        }).done(function (data) {
+            console.log(data);
+
+            if (data.state == 1) {
+                location.reload();
+            }
+        });
+    });
+
 })();
