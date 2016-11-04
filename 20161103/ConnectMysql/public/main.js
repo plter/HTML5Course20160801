@@ -35,4 +35,25 @@
         });
     });
 
+    $(".user-form").submit(function (e) {
+        e.preventDefault();
+        console.log(this['id'].value, this['user'].value, this['age'].value);
+
+        $.post("/apis/update", {
+                id: this['id'].value,
+                user: this['user'].value,
+                age: this['age'].value
+            }
+        ).done(function (data) {
+            console.log(data);
+            if (data.state == 1) {
+                alert("保存成功");
+            } else {
+                alert("保存失败");
+            }
+        }).fail(function () {
+            alert("保存失败")
+        });
+    });
+
 })();

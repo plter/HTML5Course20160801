@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const createConn = require("../sources/MySqlConnection");
+const StatusCode = require("../sources/StatusCode");
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -49,7 +50,26 @@ router.post("/adduser", function (req, res) {
                     }
                 });
         } else {
-            res.json({state: 4});//添加失败
+            res.json({state: StatusCode.FAIL_TO_CONNECT_DB});//添加失败
+        }
+    })
+});
+
+router.post("/update", function (req, res) {
+    var conn = createConn();
+
+    conn.connect(function (err) {
+        if (!err) {
+            conn.query("UPDATE `users` SET `user`=?,`age`=? WHERE `id`=?",
+                [req.body.user, req.body.age, req.body.id], function (err) {
+                    if (!err) {
+                        res.json({state: 1, message: "OK"});
+                    } else {
+                        res.json({state: StatusCode.FAIL_TO_SAVE_USER_INFO, message: "fail to save user information"});
+                    }
+                });
+        } else {
+            res.json({state: StatusCode.FAIL_TO_CONNECT_DB, message: "Fail to connect database"});
         }
     })
 });
