@@ -16,10 +16,22 @@ module.exports = function () {
     });
 
     conn.connect1 = function () {
-        return new Promise(function (resovle, reject) {
+        return new Promise(function (resolve, reject) {
             conn.connect(function (err) {
                 if (!err) {
-                    resovle(conn);
+                    resolve(conn);
+                } else {
+                    reject(err);
+                }
+            });
+        });
+    };
+
+    conn.query1 = function (sql, values) {
+        return new Promise(function (resolve, reject) {
+            conn.query(sql, values, function (err, rows) {
+                if (!err) {
+                    resolve(rows);
                 } else {
                     reject(err);
                 }
