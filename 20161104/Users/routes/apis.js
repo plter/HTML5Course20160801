@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var createConn = require("../sources/CreateConn");
+const md5 = require("md5-js");
 
 
 /* GET users listing. */
@@ -25,7 +26,7 @@ router.post("/register", checkUserAndPassword)
     .post('/register', function (req, res) {
         let conn = createConn();
         conn.connect1().then(result=> {
-            return conn.query1("INSERT INTO `users` (`user`,`pass`) VALUES (?,?)", [req.body.user, req.body.pass]);
+            return conn.query1("INSERT INTO `users` (`user`,`pass`) VALUES (?,?)", [req.body.user, md5(req.body.pass)]);
         }).then(result=> {
             res.json({state: 1, message: "OK"});
 
@@ -46,7 +47,7 @@ router.post("/login", checkUserAndPassword)
         }).then(function (rows) {
             if (rows.length) {
                 var result = rows[0];
-                if (req.body.pass == result.pass) {
+                if (md5(req.body.pass) == result.pass) {
                     res.json({state: 1, message: "OK"});
                 } else {
                     res.json({state: 6, message: "Password wrong"});

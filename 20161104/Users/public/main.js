@@ -21,7 +21,7 @@
         registerAlertDiv.html("正在连接服务器...");
         $.post("/apis/register", {
             user: this['user'].value,
-            pass: this['pass'].value
+            pass: md5(this['pass'].value)
         }).done(function (data) {
             console.log(data);
 
@@ -47,7 +47,7 @@
         loginAlertDiv.html("正在连接服务器...");
         $.post("/apis/login", {
             user: this['user'].value,
-            pass: this['pass'].value
+            pass: md5(this['pass'].value)
         }).done(function (data) {
             console.log(data);
             switch (data.state) {
@@ -66,5 +66,4 @@
             loginAlertDiv.html("无法连接服务器");
         });
     });
-
 })();
