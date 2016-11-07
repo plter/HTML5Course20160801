@@ -3,6 +3,7 @@
  */
 
 const StatusCode = require("../StatusCode");
+const createConn = require("../CreateConn");
 
 module.exports = function (router) {
 
@@ -22,7 +23,19 @@ module.exports = function (router) {
             return;
         }
 
-        //TODO 实现添加文章数据到数据库的功能
+        var conn = createConn();
+        conn.connect1().then(function () {
+            return conn.query1("INSERT INTO `posts` (`title`,`content`,`author`) VALUES (?,?,?)", [
+                req.body.title,
+                req.body.content,
+                req.session.loggedUser.id
+            ]);
+        }).then(function () {
+            res.json({state: StatusCode.SUCCESS, message: "OK"});
+        }).catch(function (error) {
+            res.json({state: error.errno, message: error.code});
+        });
+
     });
 
 };

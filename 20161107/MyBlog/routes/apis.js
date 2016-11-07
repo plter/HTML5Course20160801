@@ -12,5 +12,6 @@ router.get('/', function (req, res, next) {
 });
 
 require("../sources/apis/user")(router);
+require("../sources/apis/post")(router);
 
 module.exports = router;
