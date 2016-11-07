@@ -19,7 +19,7 @@
         }
 
         registerAlertDiv.html("正在连接服务器...");
-        $.post("/apis/register", {
+        $.post("/apis/user/register", {
             user: this['user'].value,
             pass: md5(this['pass'].value)
         }).done(function (data) {
@@ -45,7 +45,7 @@
         e.preventDefault();
 
         loginAlertDiv.html("正在连接服务器...");
-        $.post("/apis/login", {
+        $.post("/apis/user/login", {
             user: this['user'].value,
             pass: md5(this['pass'].value)
         }).done(function (data) {
@@ -54,8 +54,8 @@
                 case 1:
                     loginAlertDiv.html("登陆成功");
                     break;
-                case 5:
-                case 6:
+                case 1005:
+                case 1006:
                     loginAlertDiv.html("用户名或密码错误");
                     break;
                 default:
