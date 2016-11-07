@@ -11,6 +11,8 @@
             title: this["title"].value,
             content: this['content'].value
         }).done(function (data) {
+            console.log(data);
+
             if (data.state == 1) {
                 alert("发布成功");
             } else {

@@ -6,11 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>编辑</title>
-
-    <script src="jquery.min.js"></script>
 </head>
 <body>
 <% if(req.session.loggedUser){ %>
+<script src="jquery.min.js"></script>
 <div>
     <form id="form-edit-post">
         <div>
@@ -22,10 +21,9 @@
         <input type="submit" value="发布">
     </form>
 </div>
+<script src="editor.js"></script>
 <% }else { %>
 <h1>你还没有登陆</h1>
 <% } %>
-
-<script src="editor.js"></script>
 </body>
 </html>
