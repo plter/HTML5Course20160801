@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+.container .a {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.container .b {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}

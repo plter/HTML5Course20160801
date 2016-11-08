@@ -1,15 +1,17 @@
+///<reference path="Hello.ts"/>
 /**
  * Created by plter on 2016/11/8.
  */
 
-(function () {
 
-    class Main {
+namespace ucai {
+    export class Main {
+
         constructor() {
             var h = new ucai.Hello();
             h.sayHello();
         }
     }
+}
 
-    new Main();
-})();
+new ucai.Main();
