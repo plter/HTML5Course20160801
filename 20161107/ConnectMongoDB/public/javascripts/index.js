@@ -44,4 +44,24 @@
         });
     });
 
+    $(".user-form").submit(function (e) {
+        e.preventDefault();
+
+        $.post("/apis/user/update", {
+            id: this['id'].value,
+            name: this["name"].value,
+            age: this['age'].value
+        }).done(function (data) {
+            console.log(data);
+            if (data.state == 1) {
+                alert("数据已保存");
+            } else {
+                alert("无法保存数据");
+            }
+        }).fail(function (err) {
+            console.log(err);
+            alert("无法连接服务器");
+        });
+
+    });
 })();
