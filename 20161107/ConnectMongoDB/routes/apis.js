@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const StatusCode = require("../src/StatusCode");
+const mongo = require("mongodb");
 const MongoClient = require("../src/db/MongoClient");
 
 /* GET users listing. */
@@ -27,6 +28,25 @@ router.post("/user/add", (req, res)=> {
     }).catch(err=> {
         console.log(err);
         res.json({state: StatusCode.UNKNOWN_ERROR});
+    });
+});
+
+
+router.get("/user/delete", (req, res)=> {
+    if (!req.query.id) {
+        res.json({state: StatusCode.NO_USER_ID_INPUT, message: "No user id input"});
+        return;
+    }
+
+    console.log("Will delete a user whose id is " + req.query.id);
+
+    MongoClient.connect1().then(db=> {
+        return db.collection("users").deleteOne({_id: mongo.ObjectId(req.query.id)});
+    }).then(result=> {
+        res.json({state: StatusCode.SUCCESS, message: "Success"});
+    }).catch(err=> {
+        console.log(err);
+        res.json({state: StatusCode.UNKNOWN_ERROR, message: "Unknown error"});
     });
 });
 

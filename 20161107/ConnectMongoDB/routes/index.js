@@ -8,8 +8,6 @@ router.get('/', function (req, res, next) {
     MongoClient.connect1().then(function (db) {
         return db.collection("users").find().toArray();
     }).then(function (rows) {
-        console.log(rows);
-
         res.render("index", {title: "所有用户", users: rows});
     }).catch(function (err) {
         console.log(err);

@@ -27,4 +27,21 @@
 
     });
 
+    $(".link-for-delete-user").click(function (e) {
+        e.preventDefault();
+
+        $.get(this.href).done(function (data) {
+            console.log(data);
+
+            if (data.state == 1) {
+                location.reload();
+            } else {
+                alert("无法删除数据");
+            }
+        }).fail(function (err) {
+            console.log(err);
+            alert("无法连接服务器");
+        });
+    });
+
 })();
