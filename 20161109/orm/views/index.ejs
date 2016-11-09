@@ -23,12 +23,12 @@
         var user = users[i]; %>
     <tr>
         <form class="user-form">
-            <input type="hidden" name="id" value="<%= user._id %>">
-            <td><%= user._id %></td>
+            <input type="hidden" name="id" value="<%= user.getId() %>">
+            <td><%= user.getId() %></td>
             <td><input type="text" name="name" required="required" value="<%= user.name %>"></td>
             <td><input type="number" name="age" required="required" value="<%= user.age %>"></td>
             <td>
-                <a class="btn-delete" href="/users/delete?id=<%= user._id %>">删除</a>
+                <a class="btn-delete" href="/users/delete?id=<%= user.getId() %>">删除</a>
                 <input type="submit" value="保存">
             </td>
         </form>

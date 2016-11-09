@@ -23,11 +23,19 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(orm.express("mongodb://localhost/ormdb", {
+// "mongodb://localhost/ormdb"
+
+app.use(orm.express("mysql://root:@localhost/ormdb", {
     define: function (db, models, next) {
         models.User = db.define("user", {
             name: String,
             age: Number
+        }, {
+            methods: {
+                getId: function () {
+                    return this.id ? this.id : this._id;
+                }
+            }
         });
 
         next();
