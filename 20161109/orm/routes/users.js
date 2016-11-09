@@ -28,4 +28,31 @@ router.post('/add', (req, res)=> {
         }
     );
 });
+
+
+router.post('/delete', (req, res)=> {
+
+    if (!req.body.id) {
+        res.json({state: 5});//没有传入id
+        return;
+    }
+
+    req.models.User.get(req.body.id, function (err, user) {
+        if (!err) {
+            user.remove(function (err) {
+                if (!err) {
+                    res.json({state: 1});
+                } else {
+                    console.log(err);
+                    res.json({state: 7});//无法删除用户
+                }
+            });
+        } else {
+            console.log(err);
+            res.json({state: 6});//查询用户失败
+        }
+    });
+
+});
+
 module.exports = router;
