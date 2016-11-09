@@ -15,7 +15,7 @@
 
             for (var i = 0; i < kvStrings.length; i++) {
                 var kv = kvStrings[i].split("=");
-                result[kv[0]] = kv[1];
+                result[kv[0]] = decodeURI(kv[1]);
             }
         }
         return result;
@@ -63,6 +63,27 @@
                 location.reload();
             } else {
                 alert("无法删除该数据");
+            }
+        }).fail(function (err) {
+            console.log(err);
+            alert("无法连接服务器");
+        });
+    });
+
+    $(".user-form").submit(function (e) {
+        e.preventDefault();
+
+        $.post("/users/save", {
+            id: this['id'].value,
+            name: this['name'].value,
+            age: this['age'].value
+        }).done(function (data) {
+
+            console.log(data);
+            if (data.state == 1) {
+                alert("成功保存");
+            } else {
+                alert("保存失败");
             }
         }).fail(function (err) {
             console.log(err);
