@@ -3,6 +3,9 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+
+    <script src="/javascripts/jquery.min.js"></script>
 </head>
 <body>
 <h1><%= title %></h1>
@@ -25,5 +28,19 @@
     <% } %>
     </tbody>
 </table>
+
+<form id="add-user-form">
+    <label>
+        名字：
+        <input type="text" name="name" required="required">
+    </label>
+    <label>
+        年龄：
+        <input type="number" name="age" required="required">
+    </label>
+    <input type="submit" value="添加">
+</form>
+
+<script src="/javascripts/index.js"></script>
 </body>
 </html>
