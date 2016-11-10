@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+<h1><%= title %></h1>
+
+<% for(var i = 0;i < photos.length;i++){
+    var photo = photos[i]; %>
+<div>
+    <div><%= photo.name %></div>
+    <div><%= photo.description %></div>
+    <div><img src="<%= photo.path %>"></div>
+</div>
+<% } %>
+
+</body>
+</html>
