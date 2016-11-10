@@ -23,3 +23,6 @@ gulp.task("compile_js_files", function () {
 });
 
 gulp.task("default", ["copy_html_files", "compile_js_files"]);
+
+gulp.watch("src/*.html", ["copy_html_files"]);
+gulp.watch("src/*.js", ["compile_js_files"]);

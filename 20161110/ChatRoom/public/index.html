@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #ta-chat-out {
+            width: 400px;
+            height: 300px;
+        }
+
+        #form-chat-input input[name='chat-input'] {
+            width: 300px;
+        }
+
+        #form-chat-input input[name='name'] {
+            width: 300px;
+        }
+    </style>
+
+    <script src="socket.io.js"></script>
+</head>
+<body>
+<div>
+    <textarea id="ta-chat-out"></textarea>
+</div>
+<div>
+    <form id="form-chat-input">
+
+        <div>
+            <label>
+                <span>用户</span>
+                <input type="text" required="required" name="name">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>信息</span>
+                <input type="text" name="chat-input" required="required">
+            </label>
+            <input type="submit" value="发送">
+        </div>
+    </form>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

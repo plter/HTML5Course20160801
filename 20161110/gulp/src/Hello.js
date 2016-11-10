@@ -7,11 +7,11 @@ window.ucai = window.ucai || {};
 (function () {
 
     function Hello() {
-
     }
 
     Hello.prototype.sayHello = function () {
-        console.log("Hello gulp");
+        // console.log("Hello gulp");
+        alert("Hello gulp");
     };
 
     ucai.Hello = Hello;
