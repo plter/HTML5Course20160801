@@ -10,7 +10,14 @@ class Index{
 
             // alert("Clicked");
 
-            console.log("Clicked");
+            // console.log("Clicked");
+
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+            };
+            xhr.open("GET","http://ucai.cn");
+            xhr.send();
         });
     }
 }
