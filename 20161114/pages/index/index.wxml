@@ -11,4 +11,5 @@
   <text>Hello World</text>
   <button bindtouchend="touchendHandler">Click me</button>
   <button bindtap="btnShowGamePageTapHandler">呈现game页面</button>
+  <button bindtap="btnShowDataBindingPage">呈现数据绑定示例界面</button>
 </view>

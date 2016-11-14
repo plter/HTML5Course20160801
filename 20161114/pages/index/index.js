@@ -23,16 +23,12 @@ Page({
   btnShowGamePageTapHandler:function(e){
     wx.navigateTo({
       url: '../game/game',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
     })
+  },
+  btnShowDataBindingPage:function(e){
+      wx.navigateTo({
+        url: '../databinding/databinding'
+      })
   },
   onLoad: function () {
     console.log('onLoad')
