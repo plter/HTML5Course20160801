@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "babel src/main.js > build/main.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2017": "^6.16.0"
+  }
+}
