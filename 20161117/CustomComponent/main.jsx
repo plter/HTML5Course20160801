@@ -11,7 +11,7 @@
     ReactDOM.render(
         <div>
             <Hello name="ucai"/>
-            <Clock bgColor="green"/>
+            <Clock bgColor="green" color="white"/>
         </div>,
         document.querySelector("#root")
     );
