@@ -1,0 +1,39 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\plter\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   '--userconfig=C:\\Users\\plter\\.cnpmrc',
+1 verbose cli   '--disturl=https://npm.taobao.org/mirrors/node',
+1 verbose cli   '--registry=https://registry.npm.taobao.org',
+1 verbose cli   'run',
+1 verbose cli   'start' ]
+2 info using npm@3.10.9
+3 info using node@v7.0.0
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle HelloWorld@0.1.0~prestart: HelloWorld@0.1.0
+6 silly lifecycle HelloWorld@0.1.0~prestart: no script for prestart, continuing
+7 info lifecycle HelloWorld@0.1.0~start: HelloWorld@0.1.0
+8 verbose lifecycle HelloWorld@0.1.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle HelloWorld@0.1.0~start: PATH: C:\Users\plter\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\bin\node-gyp-bin;C:\Users\plter\Work\gitroot\github\plter\HTML5Course20160801\20161118\ReactjMobile\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files\ffmpeg-3.1.5-win64-static\bin;C:\Program Files\Java\jdk1.8.0_111\bin;"C:\Program Files\MongoDB\Server\3.2\bin";C:\Users\plter\AppData\Roaming\npm
+10 verbose lifecycle HelloWorld@0.1.0~start: CWD: C:\Users\plter\Work\gitroot\github\plter\HTML5Course20160801\20161118\ReactjMobile
+11 silly lifecycle HelloWorld@0.1.0~start: Args: [ '/d /s /c', 'react-scripts start' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at exports._errnoException (util.js:1026:11)
+12 verbose stack     at process.kill (internal/process.js:173:13)
+12 verbose stack     at process.listener (C:\Users\plter\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+12 verbose stack     at emitNone (events.js:91:20)
+12 verbose stack     at process.emit (events.js:185:7)
+12 verbose stack     at processEmit (C:\Users\plter\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at processEmit (C:\Users\plter\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at Signal.wrap.onsignal (internal/process.js:200:44)
+13 verbose cwd C:\Users\plter\Work\gitroot\github\plter\HTML5Course20160801\20161118\ReactjMobile
+14 error Windows_NT 10.0.10240
+15 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\plter\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\npm\\bin\\npm-cli.js" "--userconfig=C:\\Users\\plter\\.cnpmrc" "--disturl=https://npm.taobao.org/mirrors/node" "--registry=https://registry.npm.taobao.org" "run" "start"
+16 error node v7.0.0
+17 error npm  v3.10.9
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]
