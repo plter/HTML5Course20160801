@@ -7,3 +7,4 @@ build
 .gradle
 uploads
 dist
+bower_components
