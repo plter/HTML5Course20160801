@@ -1,0 +1,6 @@
+{
+  "name": "data-binding",
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
