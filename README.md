@@ -1,6 +1,8 @@
 # HTML5Course20160801
 
 #作业安排
+##20161119
+1. 使用AngularJS开发科目一考试系统
 
 ##20161117
 1. 使用React配合jQuery mobile写出微信的界面
