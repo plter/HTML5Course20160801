@@ -6,7 +6,7 @@
 
     var stage = new createjs.Stage("canvas");
 
-    // stage.addChild(new Rect());
+    stage.addChild(new Rect());
 
     // var img = new createjs.Bitmap("image.jpg");
     // stage.addChild(img);
@@ -17,5 +17,6 @@
     //     alert("txt clicked");
     // });
 
+    // stage.update();
     createjs.Ticker.addEventListener("tick", stage);
 })();
