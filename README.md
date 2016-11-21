@@ -1,6 +1,10 @@
 # HTML5Course20160801
 
 #作业安排
+
+##
+1. 使用AngularJS配合jQuery mobile开发科目一考试系统，并打包成apk文件
+
 ##20161119
 1. 使用AngularJS开发科目一考试系统
 
