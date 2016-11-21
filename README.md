@@ -58,7 +58,6 @@
 2. 尝试封装网络请求
 3. 通过接口内容  写界面
 
-#作业安排
 ##20160824
 1. 打飞机游戏，效果参考：[http://plter.github.io/h5demos/AirRaid/](http://plter.github.io/h5demos/AirRaid/)
 
