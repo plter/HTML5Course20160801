@@ -9,7 +9,7 @@
 </head>
 <body ng-controller="main">
 <div>
-    <h3>{{title}}</h3>
+    <h3>{{questionIndex+1}}、{{title}}</h3>
     <form id="form-question" ng-submit="nextQuestionHandler()">
         <div ng-repeat="answer in answers">
             <label>
@@ -17,8 +17,9 @@
                 <span>{{answer.description}}</span>
             </label>
         </div>
-        <input type="submit" value="下一题">
+        <input ng-if="!atLastQuestion" type="submit" value="下一题">
     </form>
+    <button ng-if="atLastQuestion" ng-click="btnSubmitBtnClicked()">提交</button>
 </div>
 </body>
 </html>
