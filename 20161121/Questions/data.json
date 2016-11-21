@@ -4,29 +4,32 @@
       "title": "驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？",
       "type": "single",
       "answers": [
-        {"answer": "a", "description": "A、违章行为", "correct": 0},
-        {"answer": "b", "description": "B、违法行为", "correct": 1},
-        {"answer": "c", "description": "C、过失行为", "correct": 0},
-        {"answer": "d", "description": "D、违规行为", "correct": 0}
-      ]
+        {"answer": "a", "description": "A、违章行为"},
+        {"answer": "b", "description": "B、违法行为"},
+        {"answer": "c", "description": "C、过失行为"},
+        {"answer": "d", "description": "D、违规行为"}
+      ],
+      "correct":"b"
     },
     {
       "title": "机动车驾驶人违法驾驶造成重大交通事故构成犯罪的，依法追究什么责任？",
       "type": "single",
       "answers": [
-        {"answer": "a", "description": "A、刑事责任", "correct": 1},
-        {"answer": "b", "description": "B、民事责任", "correct": 0},
-        {"answer": "c", "description": "C、经济责任", "correct": 0},
-        {"answer": "d", "description": "D、直接责任", "correct": 0}
-      ]
+        {"answer": "a", "description": "A、刑事责任"},
+        {"answer": "b", "description": "B、民事责任"},
+        {"answer": "c", "description": "C、经济责任"},
+        {"answer": "d", "description": "D、直接责任"}
+      ],
+      "correct":"a"
     },
     {
       "title": "驾驶机动车违反道路交通安全法律法规发生交通事故属于交通违章行为",
       "type": "single",
       "answers": [
-        {"answer": "a", "description": "正确", "correct": 0},
-        {"answer": "b", "description": "错误", "correct": 1}
-      ]
+        {"answer": "a", "description": "正确"},
+        {"answer": "b", "description": "错误"}
+      ],
+      "correct":"b"
     }
   ]
 }

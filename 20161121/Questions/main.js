@@ -13,12 +13,17 @@ angular.module("questions", []).controller("main", function ($scope, $http) {
     };
 
     function showNextQuestion() {
-        questionIndex++;
-        if (questionIndex < questions.length) {
-            showQuestion();
-        } else {
-            alert("已经到最后一题");
-        }
+
+        var form = document.querySelector("#form-question");
+        var selectedAnswer = form["answer"].value;
+        console.log(selectedAnswer == question.correct);
+
+        // questionIndex++;
+        // if (questionIndex < questions.length) {
+        //     showQuestion();
+        // } else {
+        //     alert("已经到最后一题");
+        // }
     }
 
     function showFirstQuestion() {
@@ -27,7 +32,8 @@ angular.module("questions", []).controller("main", function ($scope, $http) {
     }
 
     function showQuestion() {
-        var first = questions[questionIndex];
+        question = questions[questionIndex];
+        var first = question;
         $scope.title = first.title;
         $scope.answers = first.answers;
     }

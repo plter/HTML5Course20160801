@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <script src="main.js"></script>
 </head>
 <body ng-controller="main">
 <div>
     <h3>{{title}}</h3>
-    <div ng-repeat="answer in answers">
-        <label>
-            <input type="radio">
-            <span>{{answer.description}}</span>
-        </label>
-    </div>
-    <button ng-click="nextQuestionHandler()">下一题</button>
+    <form id="form-question" ng-submit="nextQuestionHandler()">
+        <div ng-repeat="answer in answers">
+            <label>
+                <input type="radio" name="answer" value="{{answer.answer}}">
+                <span>{{answer.description}}</span>
+            </label>
+        </div>
+        <input type="submit" value="下一题">
+    </form>
 </div>
 </body>
 </html>
